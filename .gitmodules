@@ -1,0 +1,9 @@
+[submodule "semgrep_go"]
+	path = semgrep_go
+	url = git@github.com:parsiya/semgrep_go.git
+[submodule "code/lo"]
+	path = code/lo
+	url = https://github.com/samber/lo
+[submodule "code/juice-shop"]
+	path = code/juice-shop
+	url = https://github.com/juice-shop/juice-shop

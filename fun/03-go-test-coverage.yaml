@@ -1,0 +1,17 @@
+rules:
+  - id: go-test-coverage
+    match:
+      all:
+        - inside: |
+            package $PKG
+            ...
+        - func $FUNC(...)
+    # patterns:
+    #   - pattern-inside: |
+    #       package $PKG
+    #       ...
+    #   - pattern: func $FUNC(...)
+    message: $PKG - $FUNC
+    languages:
+      - go 
+    severity: WARNING
