@@ -11,8 +11,9 @@ import (
 
 func main() {
 
-	if len(os.Args) < 2 {
-		fmt.Println("expecting a subcommand.")
+	if len(os.Args) < 3 {
+		fmt.Println("Wrong number of arguments.")
+		fmt.Println("Usage: semgrep_fun <subcommand> <path>")
 		os.Exit(1)
 	}
 
@@ -22,17 +23,36 @@ func main() {
 	subCommand := strings.ToLower(os.Args[1])
 	log.Printf("Running subcommand: %s", subCommand)
 
+	path := os.Args[2]
+
 	switch subCommand {
-	case "01-exclude-switch":
-		if err := fun.ExcludeSwitch(); err != nil {
+
+	case "00":
+		if err := fun.RunSemgrep(path); err != nil {
 			panic(err)
 		}
-	case "02-exclude-ruleid":
-		if err := fun.ExcludeRuleID(); err != nil {
+	case "01":
+		if err := fun.ExcludeSwitch(path); err != nil {
 			panic(err)
 		}
-	case "03-go-test-coverage":
-		if err := fun.GoTestCoverage(); err != nil {
+	case "02":
+		if err := fun.ExcludeRuleID(path); err != nil {
+			panic(err)
+		}
+	case "03":
+		if err := fun.GoTestCoverage(path); err != nil {
+			panic(err)
+		}
+	case "04":
+		if err := fun.TextReport(path); err != nil {
+			panic(err)
+		}
+	case "05":
+		if err := fun.HTMLReport(path); err != nil {
+			panic(err)
+		}
+	case "06":
+		if err := fun.FunctionChain(path); err != nil {
 			panic(err)
 		}
 	default:

@@ -1,0 +1,3204 @@
+                     
+                     
+┌───────────────────┐
+│ 545 Code Findings │
+└───────────────────┘
+                                           
+  [36m[22m[24m  code/logrus/alt_exit.go [0m
+       [1m[24mgo-import-collection[0m
+          $ALIAS - fmt               
+                                     
+           25┆ [1m[24mimport ([0m
+           26┆ [1m[24m        
+  "fmt"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-import-collection[0m
+          $ALIAS - os                
+                                     
+           25┆ [1m[24mimport ([0m
+           26┆ [1m[24m        
+  "fmt"[0m                    
+           27┆ [1m[24m       
+  "os"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m            
+          logrus - runHandler - recover - $IMP
+                                              
+           34┆ if err := [1m[24mrecover[0m(); err != nil {
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m            
+          logrus - runHandler - Fprintln - fmt
+                                              
+           35┆ fmt.[1m[24mFprintln[0m(os.Stderr, "Error: Logrus exit handler error:", err)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m            
+          logrus - runHandler - handler - $IMP
+                                              
+           39┆ [1m[24mhandler[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                
+          logrus - runHandlers - runHandler - $IMP
+                                                  
+           44┆ [1m[24mrunHandler[0m(handler)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m          
+          logrus - Exit - runHandlers - $IMP
+                                            
+           50┆ [1m[24mrunHandlers[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m 
+          logrus - Exit - Exit - os
+                                   
+           51┆ os.[1m[24mExit[0m(code)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                    
+          logrus - RegisterExitHandler - append - $IMP
+                                                      
+           63┆ handlers = [1m[24mappend[0m(handlers, handler)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                 
+          logrus - DeferExitHandler - append - $IMP
+                                                   
+           75┆ handlers = [1m[24mappend[0m([]func(){handler}, handlers...)
+                                              
+  [36m[22m[24m  code/logrus/buffer_pool.go [0m
+       [1m[24mgo-import-collection[0m
+          $ALIAS - bytes             
+                                     
+            3┆ [1m[24mimport ([0m
+            4┆ [1m[24m          
+  "bytes"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-import-collection[0m
+          $ALIAS - sync              
+                                     
+            3┆ [1m[24mimport ([0m
+            4┆ [1m[24m          
+  "bytes"[0m                    
+            5┆ [1m[24m         
+  "sync"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m   
+          logrus - Put - Put - p.pool
+                                     
+           22┆ p.pool.[1m[24mPut[0m(buf)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m   
+          logrus - Get - Get - p.pool
+                                     
+           26┆ return p.pool.[1m[24mGet[0m().(*bytes.Buffer)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m            
+          logrus - init - SetBufferPool - $IMP
+                                              
+           36┆ [1m[24mSetBufferPool[0m(&defaultPool{
+                                          
+  [36m[22m[24m  code/logrus/ci/mage.go [0m
+       [1m[24mgo-import-collection[0m           
+          $ALIAS - github.com/magefile/mage/mage
+                                                
+            5┆ [1m[24mimport ([0m
+            6┆ [1m[24m                                  
+  "github.com/magefile/mage/mage"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-import-collection[0m
+          $ALIAS - os                
+                                     
+            5┆ [1m[24mimport ([0m
+            6┆ [1m[24m                                  
+  "github.com/magefile/mage/mage"[0m                    
+            7┆ [1m[24m       
+  "os"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m
+          main - main - Exit - os 
+                                  
+           10┆ func main() { os.[1m[24mExit[0m(mage.Main()) }
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m 
+          main - main - Main - mage
+                                   
+           10┆ func main() { os.Exit(mage.[1m[24mMain[0m()) }
+                                              
+  [36m[22m[24m  code/logrus/ci/magefile.go [0m
+       [1m[24mgo-import-collection[0m
+          $ALIAS - encoding/json     
+                                     
+            5┆ [1m[24mimport ([0m
+            6┆ [1m[24m                  
+  "encoding/json"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-import-collection[0m
+          $ALIAS - fmt               
+                                     
+            5┆ [1m[24mimport ([0m
+            6┆ [1m[24m                  
+  "encoding/json"[0m                    
+            7┆ [1m[24m        
+  "fmt"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-import-collection[0m
+          $ALIAS - os                
+                                     
+            5┆ [1m[24mimport ([0m
+            6┆ [1m[24m                  
+  "encoding/json"[0m                    
+            7┆ [1m[24m        
+  "fmt"[0m                    
+            8┆ [1m[24m       
+  "os"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-import-collection[0m
+          $ALIAS - path              
+                                     
+            5┆ [1m[24mimport ([0m
+            6┆ [1m[24m                  
+  "encoding/json"[0m                    
+            7┆ [1m[24m        
+  "fmt"[0m                    
+            8┆ [1m[24m       
+  "os"[0m                    
+            9┆ [1m[24m         
+  "path"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-import-collection[0m
+          $ALIAS - sort              
+                                     
+            5┆ [1m[24mimport ([0m
+            6┆ [1m[24m                  
+  "encoding/json"[0m                    
+            7┆ [1m[24m        
+  "fmt"[0m                    
+            8┆ [1m[24m       
+  "os"[0m                    
+            9┆ [1m[24m         
+  "path"[0m                    
+           10┆ [1m[24m         
+  "sort"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-import-collection[0m         
+          $ALIAS - github.com/magefile/mage/mg
+                                              
+            5┆ [1m[24mimport ([0m
+            6┆ [1m[24m                  
+  "encoding/json"[0m                    
+            7┆ [1m[24m        
+  "fmt"[0m                    
+            8┆ [1m[24m       
+  "os"[0m                    
+            9┆ [1m[24m         
+  "path"[0m                    
+           10┆ [1m[24m         
+  "sort"[0m                    
+           11┆ [1m[24m[0m
+           12┆ [1m[24m                                
+  "github.com/magefile/mage/mg"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-import-collection[0m         
+          $ALIAS - github.com/magefile/mage/sh
+                                              
+            5┆ [1m[24mimport ([0m
+            6┆ [1m[24m                  
+  "encoding/json"[0m                    
+            7┆ [1m[24m        
+  "fmt"[0m                    
+            8┆ [1m[24m       
+  "os"[0m                    
+            9┆ [1m[24m         
+  "path"[0m                    
+           10┆ [1m[24m         
+  "sort"[0m                    
+           11┆ [1m[24m[0m
+           12┆ [1m[24m                                
+  "github.com/magefile/mage/mg"[0m                    
+           13┆ [1m[24m                                
+  "github.com/magefile/mage/sh"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m         
+          main - intersect - Strings - sort
+                                           
+           17┆ sort.[1m[24mStrings[0m(a)
+            ⋮┆----------------------------------------
+           18┆ sort.[1m[24mStrings[0m(b)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                                                      
+          main - intersect - func() int {                 if len(a) < len(b) {          
+          return len(a)                 }                 return len(b)         } - $IMP
+                                                                                        
+           20┆ res := make([]string, 0, [1m[24mfunc() int {[0m
+           21┆ [1m[24m    if len(a) < len(b) 
+  {[0m                                       
+           22┆ [1m[24m                
+  return len(a)[0m                    
+           23┆ [1m[24m    
+  }[0m                    
+           24┆ [1m[24m    return      
+  len(b)[0m                           
+           25┆ [1m[24m}[0m())
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m     
+          main - intersect - len - $IMP
+                                       
+           21┆ if [1m[24mlen[0m(a) < len(b) {
+            ⋮┆----------------------------------------
+           21┆ if len(a) < [1m[24mlen[0m(b) {
+            ⋮┆----------------------------------------
+           22┆ return [1m[24mlen[0m(a)
+            ⋮┆----------------------------------------
+           24┆ return [1m[24mlen[0m(b)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m               
+          main - intersect - SearchStrings - sort
+                                                 
+           28┆ idx := sort.[1m[24mSearchStrings[0m(b, v)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m     
+          main - intersect - len - $IMP
+                                       
+           29┆ if idx < [1m[24mlen[0m(b) && b[idx] == v {
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m        
+          main - intersect - append - $IMP
+                                          
+           30┆ res = [1m[24mappend[0m(res, v)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m               
+          main - getFullBuildMatrix - Output - sh
+                                                 
+           38┆ jsonData, err := sh.[1m[24mOutput[0m("go", "tool", "dist", "list", "-json")
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                    
+          main - getFullBuildMatrix - Unmarshal - json
+                                                      
+           46┆ if err := json.[1m[24mUnmarshal[0m([]byte(jsonData), &data); err != nil {
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                 
+          main - getFullBuildMatrix - append - $IMP
+                                                   
+           53┆ matrix[v.Goos] = [1m[24mappend[0m(val, v.Goarch)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                         
+          main - getBuildMatrix - getFullBuildMatrix - $IMP
+                                                           
+           72┆ fullMatrix, err := [1m[24mgetFullBuildMatrix[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m             
+          main - getBuildMatrix - delete - $IMP
+                                               
+           79┆ [1m[24mdelete[0m(minimalMatrix, os)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                
+          main - getBuildMatrix - intersect - $IMP
+                                                  
+           81┆ minimalMatrix[os] = [1m[24mintersect[0m(arches, fullV)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                 
+          main - CrossBuild - getBuildMatrix - $IMP
+                                                   
+           88┆ matrix, err := [1m[24mgetBuildMatrix[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m        
+          main - CrossBuild - Verbose - mg
+                                          
+           99┆ if mg.[1m[24mVerbose[0m() {
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m        
+          main - CrossBuild - Printf - fmt
+                                          
+          100┆ fmt.[1m[24mPrintf[0m("Building for GOOS=%s GOARCH=%s\n", os, arch)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m        
+          main - CrossBuild - RunWith - sh
+                                          
+          102┆ if err := sh.[1m[24mRunWith[0m(env, "go", "build", "./..."); err != nil {
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m 
+          main - Lint - Getenv - os
+                                   
+          111┆ gopath := os.[1m[24mGetenv[0m("GOPATH")
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m  
+          main - Lint - Errorf - fmt
+                                    
+          113┆ return fmt.[1m[24mErrorf[0m("cannot retrieve GOPATH")
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m
+          main - Lint - Run - sh  
+                                  
+          116┆ return sh.[1m[24mRun[0m(path.Join(gopath, "bin", "golangci-lint"), "run", "./...")
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m 
+          main - Lint - Join - path
+                                   
+          116┆ return sh.Run(path.[1m[24mJoin[0m(gopath, "bin", "golangci-lint"), "run", "./...")
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m  
+          main - Test - RunWith - sh
+                                    
+          121┆ return sh.[1m[24mRunWith[0m(map[string]string{"GORACE": "halt_on_error=1"},
+                                        
+  [36m[22m[24m  code/logrus/entry.go [0m
+       [1m[24mgo-import-collection[0m
+          $ALIAS - bytes             
+                                     
+            3┆ [1m[24mimport ([0m
+            4┆ [1m[24m          
+  "bytes"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-import-collection[0m
+          $ALIAS - context           
+                                     
+            3┆ [1m[24mimport ([0m
+            4┆ [1m[24m          
+  "bytes"[0m                    
+            5┆ [1m[24m            
+  "context"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-import-collection[0m
+          $ALIAS - fmt               
+                                     
+            3┆ [1m[24mimport ([0m
+            4┆ [1m[24m          
+  "bytes"[0m                    
+            5┆ [1m[24m            
+  "context"[0m                    
+            6┆ [1m[24m        
+  "fmt"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-import-collection[0m
+          $ALIAS - os                
+                                     
+            3┆ [1m[24mimport ([0m
+            4┆ [1m[24m          
+  "bytes"[0m                    
+            5┆ [1m[24m            
+  "context"[0m                    
+            6┆ [1m[24m        
+  "fmt"[0m                    
+            7┆ [1m[24m       
+  "os"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-import-collection[0m
+          $ALIAS - reflect           
+                                     
+            3┆ [1m[24mimport ([0m
+            4┆ [1m[24m          
+  "bytes"[0m                    
+            5┆ [1m[24m            
+  "context"[0m                    
+            6┆ [1m[24m        
+  "fmt"[0m                    
+            7┆ [1m[24m       
+  "os"[0m                    
+            8┆ [1m[24m            
+  "reflect"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-import-collection[0m
+          $ALIAS - runtime           
+                                     
+            3┆ [1m[24mimport ([0m
+            4┆ [1m[24m          
+  "bytes"[0m                    
+            5┆ [1m[24m            
+  "context"[0m                    
+            6┆ [1m[24m        
+  "fmt"[0m                    
+            7┆ [1m[24m       
+  "os"[0m                    
+            8┆ [1m[24m            
+  "reflect"[0m                    
+            9┆ [1m[24m            
+  "runtime"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-import-collection[0m
+          $ALIAS - strings           
+                                     
+            3┆ [1m[24mimport ([0m
+            4┆ [1m[24m          
+  "bytes"[0m                    
+            5┆ [1m[24m            
+  "context"[0m                    
+            6┆ [1m[24m        
+  "fmt"[0m                    
+            7┆ [1m[24m       
+  "os"[0m                    
+            8┆ [1m[24m            
+  "reflect"[0m                    
+            9┆ [1m[24m            
+  "runtime"[0m                    
+           10┆ [1m[24m            
+  "strings"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-import-collection[0m
+          $ALIAS - sync              
+                                     
+            3┆ [1m[24mimport ([0m
+            4┆ [1m[24m          
+  "bytes"[0m                    
+            5┆ [1m[24m            
+  "context"[0m                    
+            6┆ [1m[24m        
+  "fmt"[0m                    
+            7┆ [1m[24m       
+  "os"[0m                    
+            8┆ [1m[24m            
+  "reflect"[0m                    
+            9┆ [1m[24m            
+  "runtime"[0m                    
+           10┆ [1m[24m            
+  "strings"[0m                    
+           11┆ [1m[24m         
+  "sync"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-import-collection[0m
+          $ALIAS - time              
+                                     
+            3┆ [1m[24mimport ([0m
+            4┆ [1m[24m          
+  "bytes"[0m                    
+            5┆ [1m[24m            
+  "context"[0m                    
+            6┆ [1m[24m        
+  "fmt"[0m                    
+            7┆ [1m[24m       
+  "os"[0m                    
+            8┆ [1m[24m            
+  "reflect"[0m                    
+            9┆ [1m[24m            
+  "runtime"[0m                    
+           10┆ [1m[24m            
+  "strings"[0m                    
+           11┆ [1m[24m         
+  "sync"[0m                    
+           12┆ [1m[24m         
+  "time"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m 
+          logrus - Dup - len - $IMP
+                                   
+           82┆ data := make(Fields, [1m[24mlen[0m(entry.Data))
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                        
+          logrus - Bytes - Format - entry.Logger.Formatter
+                                                          
+           91┆ return entry.Logger.Formatter.[1m[24mFormat[0m(entry)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m       
+          logrus - String - Bytes - entry
+                                         
+           97┆ serialized, err := entry.[1m[24mBytes[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m       
+          logrus - String - string - $IMP
+                                         
+          101┆ str := [1m[24mstring[0m(serialized)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m              
+          logrus - WithError - WithField - entry
+                                                
+          107┆ return entry.[1m[24mWithField[0m(ErrorKey, err)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m         
+          logrus - WithContext - len - $IMP
+                                           
+          112┆ dataCopy := make(Fields, [1m[24mlen[0m(entry.Data))
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m               
+          logrus - WithField - WithFields - entry
+                                                 
+          121┆ return entry.[1m[24mWithFields[0m(Fields{key: value})
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m        
+          logrus - WithFields - len - $IMP
+                                          
+          126┆ data := make(Fields, [1m[24mlen[0m(entry.Data)+len(fields))
+            ⋮┆----------------------------------------
+          126┆ data := make(Fields, len(entry.Data)+[1m[24mlen[0m(fields))
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m              
+          logrus - WithFields - TypeOf - reflect
+                                                
+          133┆ if t := reflect.[1m[24mTypeOf[0m(v); t != nil {
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m      
+          logrus - WithFields - Kind - t
+                                        
+          135┆ case t.[1m[24mKind[0m() == reflect.Func, t.Kind() == reflect.Ptr && t.Elem().Kind() == reflect.Func:
+            ⋮┆----------------------------------------
+          135┆ case t.Kind() == reflect.Func, t.[1m[24mKind[0m() == reflect.Ptr && t.Elem().Kind() == reflect.Func:
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m      
+          logrus - WithFields - Elem - t
+                                        
+          135┆ case t.Kind() == reflect.Func, t.Kind() == reflect.Ptr && t.[1m[24mElem[0m().Kind() == reflect.Func:
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m             
+          logrus - WithFields - Kind - t.Elem()
+                                               
+          135┆ case t.Kind() == reflect.Func, t.Kind() == reflect.Ptr && t.Elem().[1m[24mKind[0m() == reflect.Func:
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m           
+          logrus - WithFields - Sprintf - fmt
+                                             
+          140┆ tmp := fmt.[1m[24mSprintf[0m("can not add field %q", k)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m      
+          logrus - WithTime - len - $IMP
+                                        
+          155┆ dataCopy := make(Fields, [1m[24mlen[0m(entry.Data))
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                     
+          logrus - getPackageName - LastIndex - strings
+                                                       
+          166┆ lastPeriod := strings.[1m[24mLastIndex[0m(f, ".")
+            ⋮┆----------------------------------------
+          167┆ lastSlash := strings.[1m[24mLastIndex[0m(f, "/")
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                
+          logrus - getCaller - Do - callerInitOnce
+                                                  
+          181┆ callerInitOnce.[1m[24mDo[0m(func() {
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m              
+          logrus - getCaller - Callers - runtime
+                                                
+          183┆ _ = runtime.[1m[24mCallers[0m(0, pcs)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                
+          logrus - getCaller - FuncForPC - runtime
+                                                  
+          187┆ funcName := runtime.[1m[24mFuncForPC[0m(pcs[i]).Name()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                             
+          logrus - getCaller - Name - runtime.FuncForPC(pcs[i])
+                                                               
+          187┆ funcName := runtime.FuncForPC(pcs[i]).[1m[24mName[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m               
+          logrus - getCaller - Contains - strings
+                                                 
+          188┆ if strings.[1m[24mContains[0m(funcName, "getCaller") {
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                  
+          logrus - getCaller - getPackageName - $IMP
+                                                    
+          189┆ logrusPackage = [1m[24mgetPackageName[0m(funcName)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m              
+          logrus - getCaller - Callers - runtime
+                                                
+          199┆ depth := runtime.[1m[24mCallers[0m(minimumCallerDepth, pcs)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                    
+          logrus - getCaller - CallersFrames - runtime
+                                                      
+          200┆ frames := runtime.[1m[24mCallersFrames[0m(pcs[:depth])
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m          
+          logrus - getCaller - Next - frames
+                                            
+          202┆ for f, again := frames.[1m[24mNext[0m(); again; f, again = frames.Next() {
+            ⋮┆----------------------------------------
+          202┆ for f, again := frames.Next(); again; f, again = frames.[1m[24mNext[0m() {
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                  
+          logrus - getCaller - getPackageName - $IMP
+                                                    
+          203┆ pkg := [1m[24mgetPackageName[0m(f.Function)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m  
+          logrus - log - Dup - entry
+                                    
+          224┆ newEntry := entry.[1m[24mDup[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m             
+          logrus - log - IsZero - newEntry.Time
+                                               
+          226┆ if newEntry.Time.[1m[24mIsZero[0m() {
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m 
+          logrus - log - Now - time
+                                   
+          227┆ newEntry.Time = time.[1m[24mNow[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                
+          logrus - log - Lock - newEntry.Logger.mu
+                                                  
+          233┆ newEntry.Logger.mu.[1m[24mLock[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m               
+          logrus - log - getBufferPool - newEntry
+                                                 
+          235┆ bufPool := newEntry.[1m[24mgetBufferPool[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                  
+          logrus - log - Unlock - newEntry.Logger.mu
+                                                    
+          236┆ newEntry.Logger.mu.[1m[24mUnlock[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m       
+          logrus - log - getCaller - $IMP
+                                         
+          239┆ newEntry.Caller = [1m[24mgetCaller[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m           
+          logrus - log - fireHooks - newEntry
+                                             
+          242┆ newEntry.[1m[24mfireHooks[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m    
+          logrus - log - Get - bufPool
+                                      
+          243┆ buffer = bufPool.[1m[24mGet[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m     
+          logrus - log - Reset - buffer
+                                       
+          246┆ buffer.[1m[24mReset[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m    
+          logrus - log - Put - bufPool
+                                      
+          247┆ bufPool.[1m[24mPut[0m(buffer)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m     
+          logrus - log - Reset - buffer
+                                       
+          249┆ buffer.[1m[24mReset[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m       
+          logrus - log - write - newEntry
+                                         
+          252┆ newEntry.[1m[24mwrite[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m   
+          logrus - log - panic - $IMP
+                                     
+          260┆ [1m[24mpanic[0m(newEntry)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                   
+          logrus - fireHooks - Lock - entry.Logger.mu
+                                                     
+          273┆ entry.Logger.mu.[1m[24mLock[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m       
+          logrus - fireHooks - len - $IMP
+                                         
+          274┆ tmpHooks = make(LevelHooks, [1m[24mlen[0m(entry.Logger.Hooks))
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                     
+          logrus - fireHooks - Unlock - entry.Logger.mu
+                                                       
+          278┆ entry.Logger.mu.[1m[24mUnlock[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m            
+          logrus - fireHooks - Fire - tmpHooks
+                                              
+          280┆ err := tmpHooks.[1m[24mFire[0m(entry.Level, entry)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m          
+          logrus - fireHooks - Fprintf - fmt
+                                            
+          282┆ fmt.[1m[24mFprintf[0m(os.Stderr, "Failed to fire hook: %v\n", err)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m               
+          logrus - write - Lock - entry.Logger.mu
+                                                 
+          287┆ entry.Logger.mu.[1m[24mLock[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                 
+          logrus - write - Unlock - entry.Logger.mu
+                                                   
+          288┆ defer entry.Logger.mu.[1m[24mUnlock[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                        
+          logrus - write - Format - entry.Logger.Formatter
+                                                          
+          289┆ serialized, err := entry.Logger.Formatter.[1m[24mFormat[0m(entry)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m      
+          logrus - write - Fprintf - fmt
+                                        
+          291┆ fmt.[1m[24mFprintf[0m(os.Stderr, "Failed to obtain reader, %v\n", err)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                 
+          logrus - write - Write - entry.Logger.Out
+                                                   
+          294┆ if _, err := entry.Logger.Out.[1m[24mWrite[0m(serialized); err != nil {
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m      
+          logrus - write - Fprintf - fmt
+                                        
+          295┆ fmt.[1m[24mFprintf[0m(os.Stderr, "Failed to write to log, %v\n", err)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                    
+          logrus - Log - IsLevelEnabled - entry.Logger
+                                                      
+          303┆ if entry.Logger.[1m[24mIsLevelEnabled[0m(level) {
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m  
+          logrus - Log - log - entry
+                                    
+          304┆ entry.[1m[24mlog[0m(level, fmt.Sprint(args...))
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m   
+          logrus - Log - Sprint - fmt
+                                     
+          304┆ entry.log(level, fmt.[1m[24mSprint[0m(args...))
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m    
+          logrus - Trace - Log - entry
+                                      
+          309┆ entry.[1m[24mLog[0m(TraceLevel, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m    
+          logrus - Debug - Log - entry
+                                      
+          313┆ entry.[1m[24mLog[0m(DebugLevel, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m     
+          logrus - Print - Info - entry
+                                       
+          317┆ entry.[1m[24mInfo[0m(args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m   
+          logrus - Info - Log - entry
+                                     
+          321┆ entry.[1m[24mLog[0m(InfoLevel, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m   
+          logrus - Warn - Log - entry
+                                     
+          325┆ entry.[1m[24mLog[0m(WarnLevel, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m       
+          logrus - Warning - Warn - entry
+                                         
+          329┆ entry.[1m[24mWarn[0m(args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m    
+          logrus - Error - Log - entry
+                                      
+          333┆ entry.[1m[24mLog[0m(ErrorLevel, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m    
+          logrus - Fatal - Log - entry
+                                      
+          337┆ entry.[1m[24mLog[0m(FatalLevel, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m            
+          logrus - Fatal - Exit - entry.Logger
+                                              
+          338┆ entry.Logger.[1m[24mExit[0m(1)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m    
+          logrus - Panic - Log - entry
+                                      
+          342┆ entry.[1m[24mLog[0m(PanicLevel, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                     
+          logrus - Logf - IsLevelEnabled - entry.Logger
+                                                       
+          348┆ if entry.Logger.[1m[24mIsLevelEnabled[0m(level) {
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m   
+          logrus - Logf - Log - entry
+                                     
+          349┆ entry.[1m[24mLog[0m(level, fmt.Sprintf(format, args...))
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m     
+          logrus - Logf - Sprintf - fmt
+                                       
+          349┆ entry.Log(level, fmt.[1m[24mSprintf[0m(format, args...))
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m      
+          logrus - Tracef - Logf - entry
+                                        
+          354┆ entry.[1m[24mLogf[0m(TraceLevel, format, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m      
+          logrus - Debugf - Logf - entry
+                                        
+          358┆ entry.[1m[24mLogf[0m(DebugLevel, format, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m     
+          logrus - Infof - Logf - entry
+                                       
+          362┆ entry.[1m[24mLogf[0m(InfoLevel, format, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m       
+          logrus - Printf - Infof - entry
+                                         
+          366┆ entry.[1m[24mInfof[0m(format, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m     
+          logrus - Warnf - Logf - entry
+                                       
+          370┆ entry.[1m[24mLogf[0m(WarnLevel, format, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m         
+          logrus - Warningf - Warnf - entry
+                                           
+          374┆ entry.[1m[24mWarnf[0m(format, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m      
+          logrus - Errorf - Logf - entry
+                                        
+          378┆ entry.[1m[24mLogf[0m(ErrorLevel, format, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m      
+          logrus - Fatalf - Logf - entry
+                                        
+          382┆ entry.[1m[24mLogf[0m(FatalLevel, format, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m             
+          logrus - Fatalf - Exit - entry.Logger
+                                               
+          383┆ entry.Logger.[1m[24mExit[0m(1)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m      
+          logrus - Panicf - Logf - entry
+                                        
+          387┆ entry.[1m[24mLogf[0m(PanicLevel, format, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                      
+          logrus - Logln - IsLevelEnabled - entry.Logger
+                                                        
+          393┆ if entry.Logger.[1m[24mIsLevelEnabled[0m(level) {
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m    
+          logrus - Logln - Log - entry
+                                      
+          394┆ entry.[1m[24mLog[0m(level, entry.sprintlnn(args...))
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m          
+          logrus - Logln - sprintlnn - entry
+                                            
+          394┆ entry.Log(level, entry.[1m[24msprintlnn[0m(args...))
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m        
+          logrus - Traceln - Logln - entry
+                                          
+          399┆ entry.[1m[24mLogln[0m(TraceLevel, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m        
+          logrus - Debugln - Logln - entry
+                                          
+          403┆ entry.[1m[24mLogln[0m(DebugLevel, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m       
+          logrus - Infoln - Logln - entry
+                                         
+          407┆ entry.[1m[24mLogln[0m(InfoLevel, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m         
+          logrus - Println - Infoln - entry
+                                           
+          411┆ entry.[1m[24mInfoln[0m(args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m       
+          logrus - Warnln - Logln - entry
+                                         
+          415┆ entry.[1m[24mLogln[0m(WarnLevel, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m           
+          logrus - Warningln - Warnln - entry
+                                             
+          419┆ entry.[1m[24mWarnln[0m(args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m        
+          logrus - Errorln - Logln - entry
+                                          
+          423┆ entry.[1m[24mLogln[0m(ErrorLevel, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m        
+          logrus - Fatalln - Logln - entry
+                                          
+          427┆ entry.[1m[24mLogln[0m(FatalLevel, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m              
+          logrus - Fatalln - Exit - entry.Logger
+                                                
+          428┆ entry.Logger.[1m[24mExit[0m(1)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m        
+          logrus - Panicln - Logln - entry
+                                          
+          432┆ entry.[1m[24mLogln[0m(PanicLevel, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m           
+          logrus - sprintlnn - Sprintln - fmt
+                                             
+          440┆ msg := fmt.[1m[24mSprintln[0m(args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m       
+          logrus - sprintlnn - len - $IMP
+                                         
+          441┆ return msg[:[1m[24mlen[0m(msg)-1]
+                                           
+  [36m[22m[24m  code/logrus/exported.go [0m
+       [1m[24mgo-import-collection[0m
+          $ALIAS - context           
+                                     
+            3┆ [1m[24mimport ([0m
+            4┆ [1m[24m            
+  "context"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-import-collection[0m
+          $ALIAS - io                
+                                     
+            3┆ [1m[24mimport ([0m
+            4┆ [1m[24m            
+  "context"[0m                    
+            5┆ [1m[24m       
+  "io"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-import-collection[0m
+          $ALIAS - time              
+                                     
+            3┆ [1m[24mimport ([0m
+            4┆ [1m[24m            
+  "context"[0m                    
+            5┆ [1m[24m       
+  "io"[0m                    
+            6┆ [1m[24m         
+  "time"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m            
+          logrus - SetOutput - SetOutput - std
+                                              
+           20┆ std.[1m[24mSetOutput[0m(out)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                  
+          logrus - SetFormatter - SetFormatter - std
+                                                    
+           25┆ std.[1m[24mSetFormatter[0m(formatter)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                        
+          logrus - SetReportCaller - SetReportCaller - std
+                                                          
+           31┆ std.[1m[24mSetReportCaller[0m(include)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m          
+          logrus - SetLevel - SetLevel - std
+                                            
+           36┆ std.[1m[24mSetLevel[0m(level)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m          
+          logrus - GetLevel - GetLevel - std
+                                            
+           41┆ return std.[1m[24mGetLevel[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                      
+          logrus - IsLevelEnabled - IsLevelEnabled - std
+                                                        
+           46┆ return std.[1m[24mIsLevelEnabled[0m(level)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m        
+          logrus - AddHook - AddHook - std
+                                          
+           51┆ std.[1m[24mAddHook[0m(hook)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m            
+          logrus - WithError - WithField - std
+                                              
+           56┆ return std.[1m[24mWithField[0m(ErrorKey, err)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                
+          logrus - WithContext - WithContext - std
+                                                  
+           61┆ return std.[1m[24mWithContext[0m(ctx)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m            
+          logrus - WithField - WithField - std
+                                              
+           70┆ return std.[1m[24mWithField[0m(key, value)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m              
+          logrus - WithFields - WithFields - std
+                                                
+           80┆ return std.[1m[24mWithFields[0m(fields)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m          
+          logrus - WithTime - WithTime - std
+                                            
+           89┆ return std.[1m[24mWithTime[0m(t)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m    
+          logrus - Trace - Trace - std
+                                      
+           94┆ std.[1m[24mTrace[0m(args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m    
+          logrus - Debug - Debug - std
+                                      
+           99┆ std.[1m[24mDebug[0m(args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m    
+          logrus - Print - Print - std
+                                      
+          104┆ std.[1m[24mPrint[0m(args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m  
+          logrus - Info - Info - std
+                                    
+          109┆ std.[1m[24mInfo[0m(args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m  
+          logrus - Warn - Warn - std
+                                    
+          114┆ std.[1m[24mWarn[0m(args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m        
+          logrus - Warning - Warning - std
+                                          
+          119┆ std.[1m[24mWarning[0m(args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m    
+          logrus - Error - Error - std
+                                      
+          124┆ std.[1m[24mError[0m(args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m    
+          logrus - Panic - Panic - std
+                                      
+          129┆ std.[1m[24mPanic[0m(args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m    
+          logrus - Fatal - Fatal - std
+                                      
+          134┆ std.[1m[24mFatal[0m(args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m        
+          logrus - TraceFn - TraceFn - std
+                                          
+          139┆ std.[1m[24mTraceFn[0m(fn)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m        
+          logrus - DebugFn - DebugFn - std
+                                          
+          144┆ std.[1m[24mDebugFn[0m(fn)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m        
+          logrus - PrintFn - PrintFn - std
+                                          
+          149┆ std.[1m[24mPrintFn[0m(fn)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m      
+          logrus - InfoFn - InfoFn - std
+                                        
+          154┆ std.[1m[24mInfoFn[0m(fn)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m      
+          logrus - WarnFn - WarnFn - std
+                                        
+          159┆ std.[1m[24mWarnFn[0m(fn)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m            
+          logrus - WarningFn - WarningFn - std
+                                              
+          164┆ std.[1m[24mWarningFn[0m(fn)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m        
+          logrus - ErrorFn - ErrorFn - std
+                                          
+          169┆ std.[1m[24mErrorFn[0m(fn)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m        
+          logrus - PanicFn - PanicFn - std
+                                          
+          174┆ std.[1m[24mPanicFn[0m(fn)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m        
+          logrus - FatalFn - FatalFn - std
+                                          
+          179┆ std.[1m[24mFatalFn[0m(fn)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m      
+          logrus - Tracef - Tracef - std
+                                        
+          184┆ std.[1m[24mTracef[0m(format, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m      
+          logrus - Debugf - Debugf - std
+                                        
+          189┆ std.[1m[24mDebugf[0m(format, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m      
+          logrus - Printf - Printf - std
+                                        
+          194┆ std.[1m[24mPrintf[0m(format, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m    
+          logrus - Infof - Infof - std
+                                      
+          199┆ std.[1m[24mInfof[0m(format, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m    
+          logrus - Warnf - Warnf - std
+                                      
+          204┆ std.[1m[24mWarnf[0m(format, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m          
+          logrus - Warningf - Warningf - std
+                                            
+          209┆ std.[1m[24mWarningf[0m(format, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m      
+          logrus - Errorf - Errorf - std
+                                        
+          214┆ std.[1m[24mErrorf[0m(format, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m      
+          logrus - Panicf - Panicf - std
+                                        
+          219┆ std.[1m[24mPanicf[0m(format, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m      
+          logrus - Fatalf - Fatalf - std
+                                        
+          224┆ std.[1m[24mFatalf[0m(format, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m        
+          logrus - Traceln - Traceln - std
+                                          
+          229┆ std.[1m[24mTraceln[0m(args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m        
+          logrus - Debugln - Debugln - std
+                                          
+          234┆ std.[1m[24mDebugln[0m(args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m        
+          logrus - Println - Println - std
+                                          
+          239┆ std.[1m[24mPrintln[0m(args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m      
+          logrus - Infoln - Infoln - std
+                                        
+          244┆ std.[1m[24mInfoln[0m(args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m      
+          logrus - Warnln - Warnln - std
+                                        
+          249┆ std.[1m[24mWarnln[0m(args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m            
+          logrus - Warningln - Warningln - std
+                                              
+          254┆ std.[1m[24mWarningln[0m(args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m        
+          logrus - Errorln - Errorln - std
+                                          
+          259┆ std.[1m[24mErrorln[0m(args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m        
+          logrus - Panicln - Panicln - std
+                                          
+          264┆ std.[1m[24mPanicln[0m(args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m        
+          logrus - Fatalln - Fatalln - std
+                                          
+          269┆ std.[1m[24mFatalln[0m(args...)
+                                            
+  [36m[22m[24m  code/logrus/formatter.go [0m
+       [1m[24mgo-import-collection[0m
+          $ALIAS - time              
+                                     
+            3┆ [1m[24mimport "time"[0m
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                        
+          logrus - prefixFieldClashes - resolve - fieldMap
+                                                          
+           43┆ timeKey := fieldMap.[1m[24mresolve[0m(FieldKeyTime)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                   
+          logrus - prefixFieldClashes - delete - $IMP
+                                                     
+           46┆ [1m[24mdelete[0m(data, timeKey)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                        
+          logrus - prefixFieldClashes - resolve - fieldMap
+                                                          
+           49┆ msgKey := fieldMap.[1m[24mresolve[0m(FieldKeyMsg)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                   
+          logrus - prefixFieldClashes - delete - $IMP
+                                                     
+           52┆ [1m[24mdelete[0m(data, msgKey)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                        
+          logrus - prefixFieldClashes - resolve - fieldMap
+                                                          
+           55┆ levelKey := fieldMap.[1m[24mresolve[0m(FieldKeyLevel)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                   
+          logrus - prefixFieldClashes - delete - $IMP
+                                                     
+           58┆ [1m[24mdelete[0m(data, levelKey)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                        
+          logrus - prefixFieldClashes - resolve - fieldMap
+                                                          
+           61┆ logrusErrKey := fieldMap.[1m[24mresolve[0m(FieldKeyLogrusError)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                   
+          logrus - prefixFieldClashes - delete - $IMP
+                                                     
+           64┆ [1m[24mdelete[0m(data, logrusErrKey)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                        
+          logrus - prefixFieldClashes - resolve - fieldMap
+                                                          
+           69┆ funcKey := fieldMap.[1m[24mresolve[0m(FieldKeyFunc)
+            ⋮┆----------------------------------------
+           73┆ fileKey := fieldMap.[1m[24mresolve[0m(FieldKeyFile)
+                                                      
+  [36m[22m[24m  code/logrus/hooks/syslog/syslog.go [0m
+       [1m[24mgo-import-collection[0m
+          $ALIAS - fmt               
+                                     
+            5┆ [1m[24mimport ([0m
+            6┆ [1m[24m        
+  "fmt"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-import-collection[0m
+          $ALIAS - log/syslog        
+                                     
+            5┆ [1m[24mimport ([0m
+            6┆ [1m[24m        
+  "fmt"[0m                    
+            7┆ [1m[24m               
+  "log/syslog"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-import-collection[0m
+          $ALIAS - os                
+                                     
+            5┆ [1m[24mimport ([0m
+            6┆ [1m[24m        
+  "fmt"[0m                    
+            7┆ [1m[24m               
+  "log/syslog"[0m                    
+            8┆ [1m[24m       
+  "os"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-import-collection[0m        
+          $ALIAS - github.com/sirupsen/logrus
+                                             
+            5┆ [1m[24mimport ([0m
+            6┆ [1m[24m        
+  "fmt"[0m                    
+            7┆ [1m[24m               
+  "log/syslog"[0m                    
+            8┆ [1m[24m       
+  "os"[0m                    
+            9┆ [1m[24m[0m
+           10┆ [1m[24m                               
+  "github.com/sirupsen/logrus"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m              
+          syslog - NewSyslogHook - Dial - syslog
+                                                
+           24┆ w, err := syslog.[1m[24mDial[0m(network, raddr, priority, tag)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m      
+          syslog - Fire - String - entry
+                                        
+           29┆ line, err := entry.[1m[24mString[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m     
+          syslog - Fire - Fprintf - fmt
+                                       
+           31┆ fmt.[1m[24mFprintf[0m(os.Stderr, "Unable to read entry, %v", err)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m          
+          syslog - Fire - Crit - hook.Writer
+                                            
+           37┆ return hook.Writer.[1m[24mCrit[0m(line)
+            ⋮┆----------------------------------------
+           39┆ return hook.Writer.[1m[24mCrit[0m(line)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m         
+          syslog - Fire - Err - hook.Writer
+                                           
+           41┆ return hook.Writer.[1m[24mErr[0m(line)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m             
+          syslog - Fire - Warning - hook.Writer
+                                               
+           43┆ return hook.Writer.[1m[24mWarning[0m(line)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m          
+          syslog - Fire - Info - hook.Writer
+                                            
+           45┆ return hook.Writer.[1m[24mInfo[0m(line)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m           
+          syslog - Fire - Debug - hook.Writer
+                                             
+           47┆ return hook.Writer.[1m[24mDebug[0m(line)
+                                                      
+  [36m[22m[24m  code/logrus/hooks/writer/writer.go [0m
+       [1m[24mgo-import-collection[0m
+          $ALIAS - io                
+                                     
+            3┆ [1m[24mimport ([0m
+            4┆ [1m[24m       
+  "io"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-import-collection[0m     
+          log - github.com/sirupsen/logrus
+                                          
+            3┆ [1m[24mimport ([0m
+            4┆ [1m[24m       
+  "io"[0m                    
+            5┆ [1m[24m[0m
+            6┆ [1m[24m    log                            
+  "github.com/sirupsen/logrus"[0m                        
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m     
+          writer - Fire - Bytes - entry
+                                       
+           18┆ line, err := entry.[1m[24mBytes[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m           
+          writer - Fire - Write - hook.Writer
+                                             
+           22┆ _, err = hook.Writer.[1m[24mWrite[0m(line)
+                                        
+  [36m[22m[24m  code/logrus/hooks.go [0m
+       [1m[24mgo-function-chain[0m    
+          logrus - Add - Levels - hook
+                                      
+           19┆ for _, level := range hook.[1m[24mLevels[0m() {
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m    
+          logrus - Add - append - $IMP
+                                      
+           20┆ hooks[level] = [1m[24mappend[0m(hooks[level], hook)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m   
+          logrus - Fire - Fire - hook
+                                     
+           28┆ if err := hook.[1m[24mFire[0m(entry); err != nil {
+                                                               
+  [36m[22m[24m  code/logrus/internal/testutils/testutils.go [0m
+       [1m[24mgo-import-collection[0m
+          $ALIAS - bytes             
+                                     
+            3┆ [1m[24mimport ([0m
+            4┆ [1m[24m          
+  "bytes"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-import-collection[0m
+          $ALIAS - encoding/json     
+                                     
+            3┆ [1m[24mimport ([0m
+            4┆ [1m[24m          
+  "bytes"[0m                    
+            5┆ [1m[24m                  
+  "encoding/json"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-import-collection[0m
+          $ALIAS - strconv           
+                                     
+            3┆ [1m[24mimport ([0m
+            4┆ [1m[24m          
+  "bytes"[0m                    
+            5┆ [1m[24m                  
+  "encoding/json"[0m                    
+            6┆ [1m[24m            
+  "strconv"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-import-collection[0m
+          $ALIAS - strings           
+                                     
+            3┆ [1m[24mimport ([0m
+            4┆ [1m[24m          
+  "bytes"[0m                    
+            5┆ [1m[24m                  
+  "encoding/json"[0m                    
+            6┆ [1m[24m            
+  "strconv"[0m                    
+            7┆ [1m[24m            
+  "strings"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-import-collection[0m
+          $ALIAS - testing           
+                                     
+            3┆ [1m[24mimport ([0m
+            4┆ [1m[24m          
+  "bytes"[0m                    
+            5┆ [1m[24m                  
+  "encoding/json"[0m                    
+            6┆ [1m[24m            
+  "strconv"[0m                    
+            7┆ [1m[24m            
+  "strings"[0m                    
+            8┆ [1m[24m            
+  "testing"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-import-collection[0m        
+          $ALIAS - github.com/sirupsen/logrus
+                                             
+            3┆ [1m[24mimport ([0m
+            4┆ [1m[24m          
+  "bytes"[0m                    
+            5┆ [1m[24m                  
+  "encoding/json"[0m                    
+            6┆ [1m[24m            
+  "strconv"[0m                    
+            7┆ [1m[24m            
+  "strings"[0m                    
+            8┆ [1m[24m            
+  "testing"[0m                    
+            9┆ [1m[24m[0m
+           10┆ [1m[24m    .                            
+  "github.com/sirupsen/logrus"[0m                      
+            ⋮┆----------------------------------------
+       [1m[24mgo-import-collection[0m                 
+          $ALIAS - github.com/stretchr/testify/require
+                                                      
+            3┆ [1m[24mimport ([0m
+            4┆ [1m[24m          
+  "bytes"[0m                    
+            5┆ [1m[24m                  
+  "encoding/json"[0m                    
+            6┆ [1m[24m            
+  "strconv"[0m                    
+            7┆ [1m[24m            
+  "strings"[0m                    
+            8┆ [1m[24m            
+  "testing"[0m                    
+            9┆ [1m[24m[0m
+           10┆ [1m[24m    .                            
+  "github.com/sirupsen/logrus"[0m                      
+           11┆ [1m[24m[0m
+           12┆ [1m[24m                                        
+  "github.com/stretchr/testify/require"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                 
+          testutils - LogAndAssertJSON - New - $IMP
+                                                   
+           19┆ logger := [1m[24mNew[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                 
+          testutils - LogAndAssertJSON - log - $IMP
+                                                   
+           23┆ [1m[24mlog[0m(logger)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                       
+          testutils - LogAndAssertJSON - Unmarshal - json
+                                                         
+           25┆ err := json.[1m[24mUnmarshal[0m(buffer.Bytes(), &fields)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                     
+          testutils - LogAndAssertJSON - Bytes - buffer
+                                                       
+           25┆ err := json.Unmarshal(buffer.[1m[24mBytes[0m(), &fields)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                    
+          testutils - LogAndAssertJSON - Nil - require
+                                                      
+           26┆ require.[1m[24mNil[0m(t, err)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                        
+          testutils - LogAndAssertJSON - assertions - $IMP
+                                                          
+           28┆ [1m[24massertions[0m(fields)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                 
+          testutils - LogAndAssertText - New - $IMP
+                                                   
+           34┆ logger := [1m[24mNew[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                 
+          testutils - LogAndAssertText - log - $IMP
+                                                   
+           40┆ [1m[24mlog[0m(logger)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                      
+          testutils - LogAndAssertText - Split - strings
+                                                        
+           43┆ for _, kv := range strings.[1m[24mSplit[0m(strings.TrimRight(buffer.String(), "\n"), " ") {
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                          
+          testutils - LogAndAssertText - TrimRight - strings
+                                                            
+           43┆ for _, kv := range strings.Split(strings.[1m[24mTrimRight[0m(buffer.String(), "\n"), " ") {
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                      
+          testutils - LogAndAssertText - String - buffer
+                                                        
+           43┆ for _, kv := range strings.Split(strings.TrimRight(buffer.[1m[24mString[0m(), "\n"), " ") {
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                         
+          testutils - LogAndAssertText - Contains - strings
+                                                           
+           44┆ if !strings.[1m[24mContains[0m(kv, "=") {
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                      
+          testutils - LogAndAssertText - Split - strings
+                                                        
+           47┆ kvArr := strings.[1m[24mSplit[0m(kv, "=")
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                          
+          testutils - LogAndAssertText - TrimSpace - strings
+                                                            
+           48┆ key := strings.[1m[24mTrimSpace[0m(kvArr[0])
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                        
+          testutils - LogAndAssertText - Unquote - strconv
+                                                          
+           52┆ val, err = strconv.[1m[24mUnquote[0m(val)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                        
+          testutils - LogAndAssertText - NoError - require
+                                                          
+           53┆ require.[1m[24mNoError[0m(t, err)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                        
+          testutils - LogAndAssertText - assertions - $IMP
+                                                          
+           57┆ [1m[24massertions[0m(fields)
+                                                 
+  [36m[22m[24m  code/logrus/json_formatter.go [0m
+       [1m[24mgo-import-collection[0m
+          $ALIAS - bytes             
+                                     
+            3┆ [1m[24mimport ([0m
+            4┆ [1m[24m          
+  "bytes"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-import-collection[0m
+          $ALIAS - encoding/json     
+                                     
+            3┆ [1m[24mimport ([0m
+            4┆ [1m[24m          
+  "bytes"[0m                    
+            5┆ [1m[24m                  
+  "encoding/json"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-import-collection[0m
+          $ALIAS - fmt               
+                                     
+            3┆ [1m[24mimport ([0m
+            4┆ [1m[24m          
+  "bytes"[0m                    
+            5┆ [1m[24m                  
+  "encoding/json"[0m                    
+            6┆ [1m[24m        
+  "fmt"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-import-collection[0m
+          $ALIAS - runtime           
+                                     
+            3┆ [1m[24mimport ([0m
+            4┆ [1m[24m          
+  "bytes"[0m                    
+            5┆ [1m[24m                  
+  "encoding/json"[0m                    
+            6┆ [1m[24m        
+  "fmt"[0m                    
+            7┆ [1m[24m            
+  "runtime"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m        
+          logrus - resolve - string - $IMP
+                                          
+           20┆ return [1m[24mstring[0m(key)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m    
+          logrus - Format - len - $IMP
+                                      
+           64┆ data := make(Fields, [1m[24mlen[0m(entry.Data)+4)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m   
+          logrus - Format - Error - v
+                                     
+           70┆ data[k] = v.[1m[24mError[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                   
+          logrus - Format - prefixFieldClashes - $IMP
+                                                     
+           82┆ [1m[24mprefixFieldClashes[0m(data, f.FieldMap, entry.HasCaller())
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m           
+          logrus - Format - HasCaller - entry
+                                             
+           82┆ prefixFieldClashes(data, f.FieldMap, entry.[1m[24mHasCaller[0m())
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m              
+          logrus - Format - resolve - f.FieldMap
+                                                
+           90┆ data[f.FieldMap.[1m[24mresolve[0m(FieldKeyLogrusError)] = entry.err
+            ⋮┆----------------------------------------
+           93┆ data[f.FieldMap.[1m[24mresolve[0m(FieldKeyTime)] = entry.Time.Format(timestampFormat)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m             
+          logrus - Format - Format - entry.Time
+                                               
+           93┆ data[f.FieldMap.resolve(FieldKeyTime)] = entry.Time.[1m[24mFormat[0m(timestampFormat)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m              
+          logrus - Format - resolve - f.FieldMap
+                                                
+           95┆ data[f.FieldMap.[1m[24mresolve[0m(FieldKeyMsg)] = entry.Message
+            ⋮┆----------------------------------------
+           96┆ data[f.FieldMap.[1m[24mresolve[0m(FieldKeyLevel)] = entry.Level.String()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m              
+          logrus - Format - String - entry.Level
+                                                
+           96┆ data[f.FieldMap.resolve(FieldKeyLevel)] = entry.Level.[1m[24mString[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m           
+          logrus - Format - HasCaller - entry
+                                             
+           97┆ if entry.[1m[24mHasCaller[0m() {
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m       
+          logrus - Format - Sprintf - fmt
+                                         
+           99┆ fileVal := fmt.[1m[24mSprintf[0m("%s:%d", entry.Caller.File, entry.Caller.Line)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m              
+          logrus - Format - CallerPrettyfier - f
+                                                
+          101┆ funcVal, fileVal = f.[1m[24mCallerPrettyfier[0m(entry.Caller)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m              
+          logrus - Format - resolve - f.FieldMap
+                                                
+          104┆ data[f.FieldMap.[1m[24mresolve[0m(FieldKeyFunc)] = funcVal
+            ⋮┆----------------------------------------
+          107┆ data[f.FieldMap.[1m[24mresolve[0m(FieldKeyFile)] = fileVal
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m           
+          logrus - Format - NewEncoder - json
+                                             
+          118┆ encoder := json.[1m[24mNewEncoder[0m(b)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                 
+          logrus - Format - SetEscapeHTML - encoder
+                                                   
+          119┆ encoder.[1m[24mSetEscapeHTML[0m(!f.DisableHTMLEscape)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m             
+          logrus - Format - SetIndent - encoder
+                                               
+          121┆ encoder.[1m[24mSetIndent[0m("", "  ")
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m          
+          logrus - Format - Encode - encoder
+                                            
+          123┆ if err := encoder.[1m[24mEncode[0m(data); err != nil {
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m      
+          logrus - Format - Errorf - fmt
+                                        
+          124┆ return nil, fmt.[1m[24mErrorf[0m("failed to marshal fields to JSON, %w", err)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m   
+          logrus - Format - Bytes - b
+                                     
+          127┆ return b.[1m[24mBytes[0m(), nil
+                                         
+  [36m[22m[24m  code/logrus/logger.go [0m
+       [1m[24mgo-import-collection[0m
+          $ALIAS - context           
+                                     
+            3┆ [1m[24mimport ([0m
+            4┆ [1m[24m            
+  "context"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-import-collection[0m
+          $ALIAS - io                
+                                     
+            3┆ [1m[24mimport ([0m
+            4┆ [1m[24m            
+  "context"[0m                    
+            5┆ [1m[24m       
+  "io"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-import-collection[0m
+          $ALIAS - os                
+                                     
+            3┆ [1m[24mimport ([0m
+            4┆ [1m[24m            
+  "context"[0m                    
+            5┆ [1m[24m       
+  "io"[0m                    
+            6┆ [1m[24m       
+  "os"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-import-collection[0m
+          $ALIAS - sync              
+                                     
+            3┆ [1m[24mimport ([0m
+            4┆ [1m[24m            
+  "context"[0m                    
+            5┆ [1m[24m       
+  "io"[0m                    
+            6┆ [1m[24m       
+  "os"[0m                    
+            7┆ [1m[24m         
+  "sync"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-import-collection[0m
+          $ALIAS - sync/atomic       
+                                     
+            3┆ [1m[24mimport ([0m
+            4┆ [1m[24m            
+  "context"[0m                    
+            5┆ [1m[24m       
+  "io"[0m                    
+            6┆ [1m[24m       
+  "os"[0m                    
+            7┆ [1m[24m         
+  "sync"[0m                    
+            8┆ [1m[24m                
+  "sync/atomic"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-import-collection[0m
+          $ALIAS - time              
+                                     
+            3┆ [1m[24mimport ([0m
+            4┆ [1m[24m            
+  "context"[0m                    
+            5┆ [1m[24m       
+  "io"[0m                    
+            6┆ [1m[24m       
+  "os"[0m                    
+            7┆ [1m[24m         
+  "sync"[0m                    
+            8┆ [1m[24m                
+  "sync/atomic"[0m                    
+            9┆ [1m[24m         
+  "time"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m      
+          logrus - Lock - Lock - mw.lock
+                                        
+           61┆ mw.lock.[1m[24mLock[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m          
+          logrus - Unlock - Unlock - mw.lock
+                                            
+           67┆ mw.lock.[1m[24mUnlock[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                  
+          logrus - newEntry - Get - logger.entryPool
+                                                    
+           99┆ entry, ok := logger.entryPool.[1m[24mGet[0m().(*Entry)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m           
+          logrus - newEntry - NewEntry - $IMP
+                                             
+          103┆ return [1m[24mNewEntry[0m(logger)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                      
+          logrus - releaseEntry - Put - logger.entryPool
+                                                        
+          108┆ logger.entryPool.[1m[24mPut[0m(entry)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m              
+          logrus - WithField - newEntry - logger
+                                                
+          116┆ entry := logger.[1m[24mnewEntry[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                  
+          logrus - WithField - releaseEntry - logger
+                                                    
+          117┆ defer logger.[1m[24mreleaseEntry[0m(entry)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m              
+          logrus - WithField - WithField - entry
+                                                
+          118┆ return entry.[1m[24mWithField[0m(key, value)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m               
+          logrus - WithFields - newEntry - logger
+                                                 
+          124┆ entry := logger.[1m[24mnewEntry[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                   
+          logrus - WithFields - releaseEntry - logger
+                                                     
+          125┆ defer logger.[1m[24mreleaseEntry[0m(entry)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                
+          logrus - WithFields - WithFields - entry
+                                                  
+          126┆ return entry.[1m[24mWithFields[0m(fields)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m              
+          logrus - WithError - newEntry - logger
+                                                
+          132┆ entry := logger.[1m[24mnewEntry[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                  
+          logrus - WithError - releaseEntry - logger
+                                                    
+          133┆ defer logger.[1m[24mreleaseEntry[0m(entry)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m              
+          logrus - WithError - WithError - entry
+                                                
+          134┆ return entry.[1m[24mWithError[0m(err)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                
+          logrus - WithContext - newEntry - logger
+                                                  
+          139┆ entry := logger.[1m[24mnewEntry[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                    
+          logrus - WithContext - releaseEntry - logger
+                                                      
+          140┆ defer logger.[1m[24mreleaseEntry[0m(entry)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                  
+          logrus - WithContext - WithContext - entry
+                                                    
+          141┆ return entry.[1m[24mWithContext[0m(ctx)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m             
+          logrus - WithTime - newEntry - logger
+                                               
+          146┆ entry := logger.[1m[24mnewEntry[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                 
+          logrus - WithTime - releaseEntry - logger
+                                                   
+          147┆ defer logger.[1m[24mreleaseEntry[0m(entry)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m            
+          logrus - WithTime - WithTime - entry
+                                              
+          148┆ return entry.[1m[24mWithTime[0m(t)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m               
+          logrus - Logf - IsLevelEnabled - logger
+                                                 
+          152┆ if logger.[1m[24mIsLevelEnabled[0m(level) {
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m         
+          logrus - Logf - newEntry - logger
+                                           
+          153┆ entry := logger.[1m[24mnewEntry[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m    
+          logrus - Logf - Logf - entry
+                                      
+          154┆ entry.[1m[24mLogf[0m(level, format, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m             
+          logrus - Logf - releaseEntry - logger
+                                               
+          155┆ logger.[1m[24mreleaseEntry[0m(entry)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m       
+          logrus - Tracef - Logf - logger
+                                         
+          160┆ logger.[1m[24mLogf[0m(TraceLevel, format, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m       
+          logrus - Debugf - Logf - logger
+                                         
+          164┆ logger.[1m[24mLogf[0m(DebugLevel, format, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m      
+          logrus - Infof - Logf - logger
+                                        
+          168┆ logger.[1m[24mLogf[0m(InfoLevel, format, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m           
+          logrus - Printf - newEntry - logger
+                                             
+          172┆ entry := logger.[1m[24mnewEntry[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m        
+          logrus - Printf - Printf - entry
+                                          
+          173┆ entry.[1m[24mPrintf[0m(format, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m               
+          logrus - Printf - releaseEntry - logger
+                                                 
+          174┆ logger.[1m[24mreleaseEntry[0m(entry)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m      
+          logrus - Warnf - Logf - logger
+                                        
+          178┆ logger.[1m[24mLogf[0m(WarnLevel, format, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m          
+          logrus - Warningf - Warnf - logger
+                                            
+          182┆ logger.[1m[24mWarnf[0m(format, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m       
+          logrus - Errorf - Logf - logger
+                                         
+          186┆ logger.[1m[24mLogf[0m(ErrorLevel, format, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m       
+          logrus - Fatalf - Logf - logger
+                                         
+          190┆ logger.[1m[24mLogf[0m(FatalLevel, format, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m       
+          logrus - Fatalf - Exit - logger
+                                         
+          191┆ logger.[1m[24mExit[0m(1)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m       
+          logrus - Panicf - Logf - logger
+                                         
+          195┆ logger.[1m[24mLogf[0m(PanicLevel, format, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m              
+          logrus - Log - IsLevelEnabled - logger
+                                                
+          202┆ if logger.[1m[24mIsLevelEnabled[0m(level) {
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m        
+          logrus - Log - newEntry - logger
+                                          
+          203┆ entry := logger.[1m[24mnewEntry[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m  
+          logrus - Log - Log - entry
+                                    
+          204┆ entry.[1m[24mLog[0m(level, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m            
+          logrus - Log - releaseEntry - logger
+                                              
+          205┆ logger.[1m[24mreleaseEntry[0m(entry)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                
+          logrus - LogFn - IsLevelEnabled - logger
+                                                  
+          210┆ if logger.[1m[24mIsLevelEnabled[0m(level) {
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m          
+          logrus - LogFn - newEntry - logger
+                                            
+          211┆ entry := logger.[1m[24mnewEntry[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m    
+          logrus - LogFn - Log - entry
+                                      
+          212┆ entry.[1m[24mLog[0m(level, fn()...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m  
+          logrus - LogFn - fn - $IMP
+                                    
+          212┆ entry.Log(level, [1m[24mfn[0m()...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m              
+          logrus - LogFn - releaseEntry - logger
+                                                
+          213┆ logger.[1m[24mreleaseEntry[0m(entry)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m     
+          logrus - Trace - Log - logger
+                                       
+          218┆ logger.[1m[24mLog[0m(TraceLevel, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m     
+          logrus - Debug - Log - logger
+                                       
+          222┆ logger.[1m[24mLog[0m(DebugLevel, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m    
+          logrus - Info - Log - logger
+                                      
+          226┆ logger.[1m[24mLog[0m(InfoLevel, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m          
+          logrus - Print - newEntry - logger
+                                            
+          230┆ entry := logger.[1m[24mnewEntry[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m      
+          logrus - Print - Print - entry
+                                        
+          231┆ entry.[1m[24mPrint[0m(args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m              
+          logrus - Print - releaseEntry - logger
+                                                
+          232┆ logger.[1m[24mreleaseEntry[0m(entry)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m    
+          logrus - Warn - Log - logger
+                                      
+          236┆ logger.[1m[24mLog[0m(WarnLevel, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m        
+          logrus - Warning - Warn - logger
+                                          
+          240┆ logger.[1m[24mWarn[0m(args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m     
+          logrus - Error - Log - logger
+                                       
+          244┆ logger.[1m[24mLog[0m(ErrorLevel, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m     
+          logrus - Fatal - Log - logger
+                                       
+          248┆ logger.[1m[24mLog[0m(FatalLevel, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m      
+          logrus - Fatal - Exit - logger
+                                        
+          249┆ logger.[1m[24mExit[0m(1)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m     
+          logrus - Panic - Log - logger
+                                       
+          253┆ logger.[1m[24mLog[0m(PanicLevel, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m         
+          logrus - TraceFn - LogFn - logger
+                                           
+          257┆ logger.[1m[24mLogFn[0m(TraceLevel, fn)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m         
+          logrus - DebugFn - LogFn - logger
+                                           
+          261┆ logger.[1m[24mLogFn[0m(DebugLevel, fn)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m        
+          logrus - InfoFn - LogFn - logger
+                                          
+          265┆ logger.[1m[24mLogFn[0m(InfoLevel, fn)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m            
+          logrus - PrintFn - newEntry - logger
+                                              
+          269┆ entry := logger.[1m[24mnewEntry[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m        
+          logrus - PrintFn - Print - entry
+                                          
+          270┆ entry.[1m[24mPrint[0m(fn()...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m    
+          logrus - PrintFn - fn - $IMP
+                                      
+          270┆ entry.Print([1m[24mfn[0m()...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                
+          logrus - PrintFn - releaseEntry - logger
+                                                  
+          271┆ logger.[1m[24mreleaseEntry[0m(entry)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m        
+          logrus - WarnFn - LogFn - logger
+                                          
+          275┆ logger.[1m[24mLogFn[0m(WarnLevel, fn)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m            
+          logrus - WarningFn - WarnFn - logger
+                                              
+          279┆ logger.[1m[24mWarnFn[0m(fn)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m         
+          logrus - ErrorFn - LogFn - logger
+                                           
+          283┆ logger.[1m[24mLogFn[0m(ErrorLevel, fn)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m         
+          logrus - FatalFn - LogFn - logger
+                                           
+          287┆ logger.[1m[24mLogFn[0m(FatalLevel, fn)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m        
+          logrus - FatalFn - Exit - logger
+                                          
+          288┆ logger.[1m[24mExit[0m(1)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m         
+          logrus - PanicFn - LogFn - logger
+                                           
+          292┆ logger.[1m[24mLogFn[0m(PanicLevel, fn)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                
+          logrus - Logln - IsLevelEnabled - logger
+                                                  
+          296┆ if logger.[1m[24mIsLevelEnabled[0m(level) {
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m          
+          logrus - Logln - newEntry - logger
+                                            
+          297┆ entry := logger.[1m[24mnewEntry[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m      
+          logrus - Logln - Logln - entry
+                                        
+          298┆ entry.[1m[24mLogln[0m(level, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m              
+          logrus - Logln - releaseEntry - logger
+                                                
+          299┆ logger.[1m[24mreleaseEntry[0m(entry)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m         
+          logrus - Traceln - Logln - logger
+                                           
+          304┆ logger.[1m[24mLogln[0m(TraceLevel, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m         
+          logrus - Debugln - Logln - logger
+                                           
+          308┆ logger.[1m[24mLogln[0m(DebugLevel, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m        
+          logrus - Infoln - Logln - logger
+                                          
+          312┆ logger.[1m[24mLogln[0m(InfoLevel, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m            
+          logrus - Println - newEntry - logger
+                                              
+          316┆ entry := logger.[1m[24mnewEntry[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m          
+          logrus - Println - Println - entry
+                                            
+          317┆ entry.[1m[24mPrintln[0m(args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                
+          logrus - Println - releaseEntry - logger
+                                                  
+          318┆ logger.[1m[24mreleaseEntry[0m(entry)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m        
+          logrus - Warnln - Logln - logger
+                                          
+          322┆ logger.[1m[24mLogln[0m(WarnLevel, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m            
+          logrus - Warningln - Warnln - logger
+                                              
+          326┆ logger.[1m[24mWarnln[0m(args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m         
+          logrus - Errorln - Logln - logger
+                                           
+          330┆ logger.[1m[24mLogln[0m(ErrorLevel, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m         
+          logrus - Fatalln - Logln - logger
+                                           
+          334┆ logger.[1m[24mLogln[0m(FatalLevel, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m        
+          logrus - Fatalln - Exit - logger
+                                          
+          335┆ logger.[1m[24mExit[0m(1)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m         
+          logrus - Panicln - Logln - logger
+                                           
+          339┆ logger.[1m[24mLogln[0m(PanicLevel, args...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m          
+          logrus - Exit - runHandlers - $IMP
+                                            
+          343┆ [1m[24mrunHandlers[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m         
+          logrus - Exit - ExitFunc - logger
+                                           
+          347┆ logger.[1m[24mExitFunc[0m(code)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                
+          logrus - SetNoLock - Disable - logger.mu
+                                                  
+          354┆ logger.mu.[1m[24mDisable[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m     
+          logrus - level - Level - $IMP
+                                       
+          358┆ return [1m[24mLevel[0m(atomic.LoadUint32((*uint32)(&logger.Level)))
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m            
+          logrus - level - LoadUint32 - atomic
+                                              
+          358┆ return Level(atomic.[1m[24mLoadUint32[0m((*uint32)(&logger.Level)))
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m       
+          logrus - level - *uint32 - $IMP
+                                         
+          358┆ return Level(atomic.LoadUint32(([1m[24m*uint32[0m)(&logger.Level)))
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                
+          logrus - SetLevel - StoreUint32 - atomic
+                                                  
+          363┆ atomic.[1m[24mStoreUint32[0m((*uint32)(&logger.Level), uint32(level))
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m          
+          logrus - SetLevel - *uint32 - $IMP
+                                            
+          363┆ atomic.StoreUint32(([1m[24m*uint32[0m)(&logger.Level), uint32(level))
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m         
+          logrus - SetLevel - uint32 - $IMP
+                                           
+          363┆ atomic.StoreUint32((*uint32)(&logger.Level), [1m[24muint32[0m(level))
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m          
+          logrus - GetLevel - level - logger
+                                            
+          368┆ return logger.[1m[24mlevel[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m           
+          logrus - AddHook - Lock - logger.mu
+                                             
+          373┆ logger.mu.[1m[24mLock[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m             
+          logrus - AddHook - Unlock - logger.mu
+                                               
+          374┆ defer logger.mu.[1m[24mUnlock[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m             
+          logrus - AddHook - Add - logger.Hooks
+                                               
+          375┆ logger.Hooks.[1m[24mAdd[0m(hook)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                
+          logrus - IsLevelEnabled - level - logger
+                                                  
+          380┆ return logger.[1m[24mlevel[0m() >= level
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                
+          logrus - SetFormatter - Lock - logger.mu
+                                                  
+          385┆ logger.mu.[1m[24mLock[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                  
+          logrus - SetFormatter - Unlock - logger.mu
+                                                    
+          386┆ defer logger.mu.[1m[24mUnlock[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m             
+          logrus - SetOutput - Lock - logger.mu
+                                               
+          392┆ logger.mu.[1m[24mLock[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m               
+          logrus - SetOutput - Unlock - logger.mu
+                                                 
+          393┆ defer logger.mu.[1m[24mUnlock[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                   
+          logrus - SetReportCaller - Lock - logger.mu
+                                                     
+          398┆ logger.mu.[1m[24mLock[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                     
+          logrus - SetReportCaller - Unlock - logger.mu
+                                                       
+          399┆ defer logger.mu.[1m[24mUnlock[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                
+          logrus - ReplaceHooks - Lock - logger.mu
+                                                  
+          405┆ logger.mu.[1m[24mLock[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                  
+          logrus - ReplaceHooks - Unlock - logger.mu
+                                                    
+          408┆ logger.mu.[1m[24mUnlock[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                 
+          logrus - SetBufferPool - Lock - logger.mu
+                                                   
+          414┆ logger.mu.[1m[24mLock[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                   
+          logrus - SetBufferPool - Unlock - logger.mu
+                                                     
+          415┆ defer logger.mu.[1m[24mUnlock[0m()
+                                         
+  [36m[22m[24m  code/logrus/logrus.go [0m
+       [1m[24mgo-import-collection[0m
+          $ALIAS - fmt               
+                                     
+            3┆ [1m[24mimport ([0m
+            4┆ [1m[24m        
+  "fmt"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-import-collection[0m
+          $ALIAS - log               
+                                     
+            3┆ [1m[24mimport ([0m
+            4┆ [1m[24m        
+  "fmt"[0m                    
+            5┆ [1m[24m        
+  "log"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-import-collection[0m
+          $ALIAS - strings           
+                                     
+            3┆ [1m[24mimport ([0m
+            4┆ [1m[24m        
+  "fmt"[0m                    
+            5┆ [1m[24m        
+  "log"[0m                    
+            6┆ [1m[24m            
+  "strings"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m             
+          logrus - String - MarshalText - level
+                                               
+           17┆ if b, err := level.[1m[24mMarshalText[0m(); err == nil {
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m       
+          logrus - String - string - $IMP
+                                         
+           18┆ return [1m[24mstring[0m(b)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m               
+          logrus - ParseLevel - ToLower - strings
+                                                 
+           26┆ switch strings.[1m[24mToLower[0m(lvl) {
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m          
+          logrus - ParseLevel - Errorf - fmt
+                                            
+           44┆ return l, fmt.[1m[24mErrorf[0m("not a valid logrus Level: %q", lvl)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                  
+          logrus - UnmarshalText - ParseLevel - $IMP
+                                                    
+           49┆ l, err := [1m[24mParseLevel[0m(string(text))
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m              
+          logrus - UnmarshalText - string - $IMP
+                                                
+           49┆ l, err := ParseLevel([1m[24mstring[0m(text))
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m           
+          logrus - MarshalText - Errorf - fmt
+                                             
+           77┆ return nil, fmt.[1m[24mErrorf[0m("not a valid logrus level %d", level)
+                                                           
+  [36m[22m[24m  code/logrus/terminal_check_appengine.go [0m
+       [1m[24mgo-import-collection[0m
+          $ALIAS - io                
+                                     
+            5┆ [1m[24mimport ([0m
+            6┆ [1m[24m       
+  "io"[0m                    
+                                                     
+  [36m[22m[24m  code/logrus/terminal_check_bsd.go [0m
+       [1m[24mgo-import-collection[0m   
+          $ALIAS - golang.org/x/sys/unix
+                                        
+            6┆ [1m[24mimport "golang.org/x/sys/unix"[0m
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                    
+          logrus - isTerminal - IoctlGetTermios - unix
+                                                      
+           11┆ _, err := unix.[1m[24mIoctlGetTermios[0m(fd, ioctlReadTermios)
+                                                             
+  [36m[22m[24m  code/logrus/terminal_check_no_terminal.go [0m
+       [1m[24mgo-import-collection[0m
+          $ALIAS - io                
+                                     
+            5┆ [1m[24mimport ([0m
+            6┆ [1m[24m       
+  "io"[0m                    
+                                                              
+  [36m[22m[24m  code/logrus/terminal_check_notappengine.go [0m
+       [1m[24mgo-import-collection[0m
+          $ALIAS - io                
+                                     
+            5┆ [1m[24mimport ([0m
+            6┆ [1m[24m       
+  "io"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-import-collection[0m
+          $ALIAS - os                
+                                     
+            5┆ [1m[24mimport ([0m
+            6┆ [1m[24m       
+  "io"[0m                    
+            7┆ [1m[24m       
+  "os"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                    
+          logrus - checkIfTerminal - isTerminal - $IMP
+                                                      
+           13┆ return [1m[24misTerminal[0m(int(v.Fd()))
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m             
+          logrus - checkIfTerminal - int - $IMP
+                                               
+           13┆ return isTerminal([1m[24mint[0m(v.Fd()))
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m         
+          logrus - checkIfTerminal - Fd - v
+                                           
+           13┆ return isTerminal(int(v.[1m[24mFd[0m()))
+                                                         
+  [36m[22m[24m  code/logrus/terminal_check_solaris.go [0m
+       [1m[24mgo-import-collection[0m   
+          $ALIAS - golang.org/x/sys/unix
+                                        
+            3┆ [1m[24mimport ([0m
+            4┆ [1m[24m                          
+  "golang.org/x/sys/unix"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                   
+          logrus - isTerminal - IoctlGetTermio - unix
+                                                     
+            9┆ _, err := unix.[1m[24mIoctlGetTermio[0m(fd, unix.TCGETA)
+                                                      
+  [36m[22m[24m  code/logrus/terminal_check_unix.go [0m
+       [1m[24mgo-import-collection[0m   
+          $ALIAS - golang.org/x/sys/unix
+                                        
+            8┆ [1m[24mimport "golang.org/x/sys/unix"[0m
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                    
+          logrus - isTerminal - IoctlGetTermios - unix
+                                                      
+           13┆ _, err := unix.[1m[24mIoctlGetTermios[0m(fd, ioctlReadTermios)
+                                                         
+  [36m[22m[24m  code/logrus/terminal_check_windows.go [0m
+       [1m[24mgo-import-collection[0m
+          $ALIAS - io                
+                                     
+            5┆ [1m[24mimport ([0m
+            6┆ [1m[24m       
+  "io"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-import-collection[0m
+          $ALIAS - os                
+                                     
+            5┆ [1m[24mimport ([0m
+            6┆ [1m[24m       
+  "io"[0m                    
+            7┆ [1m[24m       
+  "os"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-import-collection[0m      
+          $ALIAS - golang.org/x/sys/windows
+                                           
+            5┆ [1m[24mimport ([0m
+            6┆ [1m[24m       
+  "io"[0m                    
+            7┆ [1m[24m       
+  "os"[0m                    
+            8┆ [1m[24m[0m
+            9┆ [1m[24m                             
+  "golang.org/x/sys/windows"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                   
+          logrus - checkIfTerminal - Handle - windows
+                                                     
+           15┆ handle := windows.[1m[24mHandle[0m(v.Fd())
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m         
+          logrus - checkIfTerminal - Fd - v
+                                           
+           15┆ handle := windows.Handle(v.[1m[24mFd[0m())
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                           
+          logrus - checkIfTerminal - GetConsoleMode - windows
+                                                             
+           17┆ if err := windows.[1m[24mGetConsoleMode[0m(handle, &mode); err != nil {
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                           
+          logrus - checkIfTerminal - SetConsoleMode - windows
+                                                             
+           21┆ if err := windows.[1m[24mSetConsoleMode[0m(handle, mode); err != nil {
+                                                 
+  [36m[22m[24m  code/logrus/text_formatter.go [0m
+       [1m[24mgo-import-collection[0m
+          $ALIAS - bytes             
+                                     
+            3┆ [1m[24mimport ([0m
+            4┆ [1m[24m          
+  "bytes"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-import-collection[0m
+          $ALIAS - fmt               
+                                     
+            3┆ [1m[24mimport ([0m
+            4┆ [1m[24m          
+  "bytes"[0m                    
+            5┆ [1m[24m        
+  "fmt"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-import-collection[0m
+          $ALIAS - os                
+                                     
+            3┆ [1m[24mimport ([0m
+            4┆ [1m[24m          
+  "bytes"[0m                    
+            5┆ [1m[24m        
+  "fmt"[0m                    
+            6┆ [1m[24m       
+  "os"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-import-collection[0m
+          $ALIAS - runtime           
+                                     
+            3┆ [1m[24mimport ([0m
+            4┆ [1m[24m          
+  "bytes"[0m                    
+            5┆ [1m[24m        
+  "fmt"[0m                    
+            6┆ [1m[24m       
+  "os"[0m                    
+            7┆ [1m[24m            
+  "runtime"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-import-collection[0m
+          $ALIAS - sort              
+                                     
+            3┆ [1m[24mimport ([0m
+            4┆ [1m[24m          
+  "bytes"[0m                    
+            5┆ [1m[24m        
+  "fmt"[0m                    
+            6┆ [1m[24m       
+  "os"[0m                    
+            7┆ [1m[24m            
+  "runtime"[0m                    
+            8┆ [1m[24m         
+  "sort"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-import-collection[0m
+          $ALIAS - strconv           
+                                     
+            3┆ [1m[24mimport ([0m
+            4┆ [1m[24m          
+  "bytes"[0m                    
+            5┆ [1m[24m        
+  "fmt"[0m                    
+            6┆ [1m[24m       
+  "os"[0m                    
+            7┆ [1m[24m            
+  "runtime"[0m                    
+            8┆ [1m[24m         
+  "sort"[0m                    
+            9┆ [1m[24m            
+  "strconv"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-import-collection[0m
+          $ALIAS - strings           
+                                     
+            3┆ [1m[24mimport ([0m
+            4┆ [1m[24m          
+  "bytes"[0m                    
+            5┆ [1m[24m        
+  "fmt"[0m                    
+            6┆ [1m[24m       
+  "os"[0m                    
+            7┆ [1m[24m            
+  "runtime"[0m                    
+            8┆ [1m[24m         
+  "sort"[0m                    
+            9┆ [1m[24m            
+  "strconv"[0m                    
+           10┆ [1m[24m            
+  "strings"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-import-collection[0m
+          $ALIAS - sync              
+                                     
+            3┆ [1m[24mimport ([0m
+            4┆ [1m[24m          
+  "bytes"[0m                    
+            5┆ [1m[24m        
+  "fmt"[0m                    
+            6┆ [1m[24m       
+  "os"[0m                    
+            7┆ [1m[24m            
+  "runtime"[0m                    
+            8┆ [1m[24m         
+  "sort"[0m                    
+            9┆ [1m[24m            
+  "strconv"[0m                    
+           10┆ [1m[24m            
+  "strings"[0m                    
+           11┆ [1m[24m         
+  "sync"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-import-collection[0m
+          $ALIAS - time              
+                                     
+            3┆ [1m[24mimport ([0m
+            4┆ [1m[24m          
+  "bytes"[0m                    
+            5┆ [1m[24m        
+  "fmt"[0m                    
+            6┆ [1m[24m       
+  "os"[0m                    
+            7┆ [1m[24m            
+  "runtime"[0m                    
+            8┆ [1m[24m         
+  "sort"[0m                    
+            9┆ [1m[24m            
+  "strconv"[0m                    
+           10┆ [1m[24m            
+  "strings"[0m                    
+           11┆ [1m[24m         
+  "sync"[0m                    
+           12┆ [1m[24m         
+  "time"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-import-collection[0m
+          $ALIAS - unicode/utf8      
+                                     
+            3┆ [1m[24mimport ([0m
+            4┆ [1m[24m          
+  "bytes"[0m                    
+            5┆ [1m[24m        
+  "fmt"[0m                    
+            6┆ [1m[24m       
+  "os"[0m                    
+            7┆ [1m[24m            
+  "runtime"[0m                    
+            8┆ [1m[24m         
+  "sort"[0m                    
+            9┆ [1m[24m            
+  "strconv"[0m                    
+           10┆ [1m[24m            
+  "strings"[0m                    
+           11┆ [1m[24m         
+  "sync"[0m                    
+           12┆ [1m[24m         
+  "time"[0m                    
+             [hid 1 additional lines, adjust with --max-lines-per-finding] 
+       [1m[24mgo-function-chain[0m  
+          logrus - init - Now - time
+                                    
+           26┆ baseTimestamp = time.[1m[24mNow[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m              
+          logrus - init - checkIfTerminal - $IMP
+                                                
+          106┆ f.isTerminal = [1m[24mcheckIfTerminal[0m(entry.Logger.Out)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m        
+          logrus - init - RuneCount - utf8
+                                          
+          110┆ levelTextLength := utf8.[1m[24mRuneCount[0m([]byte(level.String()))
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m      
+          logrus - init - String - level
+                                        
+          110┆ levelTextLength := utf8.RuneCount([]byte(level.[1m[24mString[0m()))
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m           
+          logrus - isColored - LookupEnv - os
+                                             
+          121┆ switch force, ok := os.[1m[24mLookupEnv[0m("CLICOLOR_FORCE"); {
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m        
+          logrus - isColored - Getenv - os
+                                          
+          124┆ case ok && force == "0", os.[1m[24mGetenv[0m("CLICOLOR") == "0":
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                   
+          logrus - Format - prefixFieldClashes - $IMP
+                                                     
+          138┆ [1m[24mprefixFieldClashes[0m(data, f.FieldMap, entry.HasCaller())
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m           
+          logrus - Format - HasCaller - entry
+                                             
+          138┆ prefixFieldClashes(data, f.FieldMap, entry.[1m[24mHasCaller[0m())
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m    
+          logrus - Format - len - $IMP
+                                      
+          139┆ keys := make([]string, 0, [1m[24mlen[0m(data))
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m       
+          logrus - Format - append - $IMP
+                                         
+          141┆ keys = [1m[24mappend[0m(keys, k)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m    
+          logrus - Format - len - $IMP
+                                      
+          146┆ fixedKeys := make([]string, 0, 4+[1m[24mlen[0m(data))
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m       
+          logrus - Format - append - $IMP
+                                         
+          148┆ fixedKeys = [1m[24mappend[0m(fixedKeys, f.FieldMap.resolve(FieldKeyTime))
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m              
+          logrus - Format - resolve - f.FieldMap
+                                                
+          148┆ fixedKeys = append(fixedKeys, f.FieldMap.[1m[24mresolve[0m(FieldKeyTime))
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m       
+          logrus - Format - append - $IMP
+                                         
+          150┆ fixedKeys = [1m[24mappend[0m(fixedKeys, f.FieldMap.resolve(FieldKeyLevel))
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m              
+          logrus - Format - resolve - f.FieldMap
+                                                
+          150┆ fixedKeys = append(fixedKeys, f.FieldMap.[1m[24mresolve[0m(FieldKeyLevel))
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m       
+          logrus - Format - append - $IMP
+                                         
+          152┆ fixedKeys = [1m[24mappend[0m(fixedKeys, f.FieldMap.resolve(FieldKeyMsg))
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m              
+          logrus - Format - resolve - f.FieldMap
+                                                
+          152┆ fixedKeys = append(fixedKeys, f.FieldMap.[1m[24mresolve[0m(FieldKeyMsg))
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m       
+          logrus - Format - append - $IMP
+                                         
+          155┆ fixedKeys = [1m[24mappend[0m(fixedKeys, f.FieldMap.resolve(FieldKeyLogrusError))
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m              
+          logrus - Format - resolve - f.FieldMap
+                                                
+          155┆ fixedKeys = append(fixedKeys, f.FieldMap.[1m[24mresolve[0m(FieldKeyLogrusError))
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m           
+          logrus - Format - HasCaller - entry
+                                             
+          157┆ if entry.[1m[24mHasCaller[0m() {
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m              
+          logrus - Format - CallerPrettyfier - f
+                                                
+          159┆ funcVal, fileVal = f.[1m[24mCallerPrettyfier[0m(entry.Caller)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m       
+          logrus - Format - Sprintf - fmt
+                                         
+          162┆ fileVal = fmt.[1m[24mSprintf[0m("%s:%d", entry.Caller.File, entry.Caller.Line)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m       
+          logrus - Format - append - $IMP
+                                         
+          166┆ fixedKeys = [1m[24mappend[0m(fixedKeys, f.FieldMap.resolve(FieldKeyFunc))
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m              
+          logrus - Format - resolve - f.FieldMap
+                                                
+          166┆ fixedKeys = append(fixedKeys, f.FieldMap.[1m[24mresolve[0m(FieldKeyFunc))
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m       
+          logrus - Format - append - $IMP
+                                         
+          169┆ fixedKeys = [1m[24mappend[0m(fixedKeys, f.FieldMap.resolve(FieldKeyFile))
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m              
+          logrus - Format - resolve - f.FieldMap
+                                                
+          169┆ fixedKeys = append(fixedKeys, f.FieldMap.[1m[24mresolve[0m(FieldKeyFile))
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m        
+          logrus - Format - Strings - sort
+                                          
+          175┆ sort.[1m[24mStrings[0m(keys)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m       
+          logrus - Format - append - $IMP
+                                         
+          176┆ fixedKeys = [1m[24mappend[0m(fixedKeys, keys...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m       
+          logrus - Format - isColored - f
+                                         
+          178┆ if !f.[1m[24misColored[0m() {
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m       
+          logrus - Format - append - $IMP
+                                         
+          179┆ fixedKeys = [1m[24mappend[0m(fixedKeys, keys...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m         
+          logrus - Format - SortingFunc - f
+                                           
+          180┆ f.[1m[24mSortingFunc[0m(fixedKeys)
+            ⋮┆----------------------------------------
+          182┆ f.[1m[24mSortingFunc[0m(keys)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m       
+          logrus - Format - append - $IMP
+                                         
+          186┆ fixedKeys = [1m[24mappend[0m(fixedKeys, keys...)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                 
+          logrus - Format - Do - f.terminalInitOnce
+                                                   
+          196┆ f.terminalInitOnce.[1m[24mDo[0m(func() { f.init(entry) })
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m  
+          logrus - Format - init - f
+                                    
+          196┆ f.terminalInitOnce.Do(func() { f.[1m[24minit[0m(entry) })
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m       
+          logrus - Format - isColored - f
+                                         
+          202┆ if f.[1m[24misColored[0m() {
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m          
+          logrus - Format - printColored - f
+                                            
+          203┆ f.[1m[24mprintColored[0m(b, entry, keys, data, timestampFormat)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m              
+          logrus - Format - resolve - f.FieldMap
+                                                
+          209┆ case key == f.FieldMap.[1m[24mresolve[0m(FieldKeyTime):
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m             
+          logrus - Format - Format - entry.Time
+                                               
+          210┆ value = entry.Time.[1m[24mFormat[0m(timestampFormat)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m              
+          logrus - Format - resolve - f.FieldMap
+                                                
+          211┆ case key == f.FieldMap.[1m[24mresolve[0m(FieldKeyLevel):
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m              
+          logrus - Format - String - entry.Level
+                                                
+          212┆ value = entry.Level.[1m[24mString[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m              
+          logrus - Format - resolve - f.FieldMap
+                                                
+          213┆ case key == f.FieldMap.[1m[24mresolve[0m(FieldKeyMsg):
+            ⋮┆----------------------------------------
+          215┆ case key == f.FieldMap.[1m[24mresolve[0m(FieldKeyLogrusError):
+            ⋮┆----------------------------------------
+          217┆ case key == f.FieldMap.[1m[24mresolve[0m(FieldKeyFunc) && entry.HasCaller():
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m           
+          logrus - Format - HasCaller - entry
+                                             
+          217┆ case key == f.FieldMap.resolve(FieldKeyFunc) && entry.[1m[24mHasCaller[0m():
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m              
+          logrus - Format - resolve - f.FieldMap
+                                                
+          219┆ case key == f.FieldMap.[1m[24mresolve[0m(FieldKeyFile) && entry.HasCaller():
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m           
+          logrus - Format - HasCaller - entry
+                                             
+          219┆ case key == f.FieldMap.resolve(FieldKeyFile) && entry.[1m[24mHasCaller[0m():
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m            
+          logrus - Format - appendKeyValue - f
+                                              
+          224┆ f.[1m[24mappendKeyValue[0m(b, key, value)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m       
+          logrus - Format - WriteByte - b
+                                         
+          228┆ b.[1m[24mWriteByte[0m('\n')
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m   
+          logrus - Format - Bytes - b
+                                     
+          229┆ return b.[1m[24mBytes[0m(), nil
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                 
+          logrus - printColored - ToUpper - strings
+                                                   
+          247┆ levelText := strings.[1m[24mToUpper[0m(entry.Level.String())
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                    
+          logrus - printColored - String - entry.Level
+                                                      
+          247┆ levelText := strings.ToUpper(entry.Level.[1m[24mString[0m())
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m              
+          logrus - printColored - Itoa - strconv
+                                                
+          254┆ formatString := "%-" + strconv.[1m[24mItoa[0m(f.levelTextMaxLength) + "s"
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m             
+          logrus - printColored - Sprintf - fmt
+                                               
+          258┆ levelText = fmt.[1m[24mSprintf[0m(formatString, levelText)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                    
+          logrus - printColored - TrimSuffix - strings
+                                                      
+          263┆ entry.Message = strings.[1m[24mTrimSuffix[0m(entry.Message, "\n")
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                 
+          logrus - printColored - HasCaller - entry
+                                                   
+          266┆ if entry.[1m[24mHasCaller[0m() {
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m             
+          logrus - printColored - Sprintf - fmt
+                                               
+          267┆ funcVal := fmt.[1m[24mSprintf[0m("%s()", entry.Caller.Function)
+            ⋮┆----------------------------------------
+          268┆ fileVal := fmt.[1m[24mSprintf[0m("%s:%d", entry.Caller.File, entry.Caller.Line)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                    
+          logrus - printColored - CallerPrettyfier - f
+                                                      
+          271┆ funcVal, fileVal = f.[1m[24mCallerPrettyfier[0m(entry.Caller)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m             
+          logrus - printColored - Fprintf - fmt
+                                               
+          285┆ fmt.[1m[24mFprintf[0m(b, "\x1b[%dm%s\x1b[0m%s %-44s ", levelColor, levelText, caller, entry.Message)
+            ⋮┆----------------------------------------
+          287┆ fmt.[1m[24mFprintf[0m(b, "\x1b[%dm%s\x1b[0m[%04d]%s %-44s ", levelColor, levelText,                      
+  int(entry.Time.Sub(baseTimestamp)/time.Second), caller, entry.Message)                                                
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m          
+          logrus - printColored - int - $IMP
+                                            
+          287┆ fmt.Fprintf(b, "\x1b[%dm%s\x1b[0m[%04d]%s %-44s ", levelColor, levelText,                                
+  [1m[24mint[0m(entry.Time.Sub(baseTimestamp)/time.Second), caller, entry.Message)                                      
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                
+          logrus - printColored - Sub - entry.Time
+                                                  
+          287┆ fmt.Fprintf(b, "\x1b[%dm%s\x1b[0m[%04d]%s %-44s ", levelColor, levelText,                                
+  int(entry.Time.[1m[24mSub[0m(baseTimestamp)/time.Second), caller, entry.Message)                                      
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m             
+          logrus - printColored - Fprintf - fmt
+                                               
+          289┆ fmt.[1m[24mFprintf[0m(b, "\x1b[%dm%s\x1b[0m[%s]%s %-44s ", levelColor, levelText,                        
+  entry.Time.Format(timestampFormat), caller, entry.Message)                                                            
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                   
+          logrus - printColored - Format - entry.Time
+                                                     
+          289┆ fmt.Fprintf(b, "\x1b[%dm%s\x1b[0m[%s]%s %-44s ", levelColor, levelText,                                  
+  entry.Time.[1m[24mFormat[0m(timestampFormat), caller, entry.Message)                                                  
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m             
+          logrus - printColored - Fprintf - fmt
+                                               
+          293┆ fmt.[1m[24mFprintf[0m(b, " \x1b[%dm%s\x1b[0m=", levelColor, k)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m               
+          logrus - printColored - appendValue - f
+                                                 
+          294┆ f.[1m[24mappendValue[0m(b, v)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m          
+          logrus - needsQuoting - len - $IMP
+                                            
+          302┆ if f.QuoteEmptyFields && [1m[24mlen[0m(text) == 0 {
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m         
+          logrus - appendKeyValue - Len - b
+                                           
+          320┆ if b.[1m[24mLen[0m() > 0 {
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m               
+          logrus - appendKeyValue - WriteByte - b
+                                                 
+          321┆ b.[1m[24mWriteByte[0m(' ')
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                 
+          logrus - appendKeyValue - WriteString - b
+                                                   
+          323┆ b.[1m[24mWriteString[0m(key)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m               
+          logrus - appendKeyValue - WriteByte - b
+                                                 
+          324┆ b.[1m[24mWriteByte[0m('=')
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                 
+          logrus - appendKeyValue - appendValue - f
+                                                   
+          325┆ f.[1m[24mappendValue[0m(b, value)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m           
+          logrus - appendValue - Sprint - fmt
+                                             
+          331┆ stringVal = fmt.[1m[24mSprint[0m(value)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m               
+          logrus - appendValue - needsQuoting - f
+                                                 
+          334┆ if !f.[1m[24mneedsQuoting[0m(stringVal) {
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m              
+          logrus - appendValue - WriteString - b
+                                                
+          335┆ b.[1m[24mWriteString[0m(stringVal)
+            ⋮┆----------------------------------------
+          337┆ b.[1m[24mWriteString[0m(fmt.Sprintf("%q", stringVal))
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m            
+          logrus - appendValue - Sprintf - fmt
+                                              
+          337┆ b.WriteString(fmt.[1m[24mSprintf[0m("%q", stringVal))
+                                         
+  [36m[22m[24m  code/logrus/writer.go [0m
+       [1m[24mgo-import-collection[0m
+          $ALIAS - bufio             
+                                     
+            3┆ [1m[24mimport ([0m
+            4┆ [1m[24m          
+  "bufio"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-import-collection[0m
+          $ALIAS - io                
+                                     
+            3┆ [1m[24mimport ([0m
+            4┆ [1m[24m          
+  "bufio"[0m                    
+            5┆ [1m[24m       
+  "io"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-import-collection[0m
+          $ALIAS - runtime           
+                                     
+            3┆ [1m[24mimport ([0m
+            4┆ [1m[24m          
+  "bufio"[0m                    
+            5┆ [1m[24m       
+  "io"[0m                    
+            6┆ [1m[24m            
+  "runtime"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-import-collection[0m
+          $ALIAS - strings           
+                                     
+            3┆ [1m[24mimport ([0m
+            4┆ [1m[24m          
+  "bufio"[0m                    
+            5┆ [1m[24m       
+  "io"[0m                    
+            6┆ [1m[24m            
+  "runtime"[0m                    
+            7┆ [1m[24m            
+  "strings"[0m                    
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m              
+          logrus - Writer - WriterLevel - logger
+                                                
+           12┆ return logger.[1m[24mWriterLevel[0m(InfoLevel)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m              
+          logrus - WriterLevel - NewEntry - $IMP
+                                                
+           21┆ return [1m[24mNewEntry[0m(logger).WriterLevel(level)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                             
+          logrus - WriterLevel - WriterLevel - NewEntry(logger)
+                                                               
+           21┆ return NewEntry(logger).[1m[24mWriterLevel[0m(level)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m             
+          logrus - Writer - WriterLevel - entry
+                                               
+           26┆ return entry.[1m[24mWriterLevel[0m(InfoLevel)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m        
+          logrus - WriterLevel - Pipe - io
+                                          
+           31┆ reader, writer := io.[1m[24mPipe[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                    
+          logrus - WriterLevel - writerScanner - entry
+                                                      
+           57┆ go entry.[1m[24mwriterScanner[0m(reader, printFunc)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                     
+          logrus - WriterLevel - SetFinalizer - runtime
+                                                       
+           60┆ runtime.[1m[24mSetFinalizer[0m(writer, writerFinalizer)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                   
+          logrus - writerScanner - NewScanner - bufio
+                                                     
+           67┆ scanner := bufio.[1m[24mNewScanner[0m(reader)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                 
+          logrus - writerScanner - Buffer - scanner
+                                                   
+           70┆ scanner.[1m[24mBuffer[0m(make([]byte, bufio.MaxScanTokenSize), bufio.MaxScanTokenSize)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m           
+          logrus - writerScanner - len - $IMP
+                                             
+           75┆ if [1m[24mlen[0m(data) >= chunkSize {
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                  
+          logrus - writerScanner - ScanLines - bufio
+                                                    
+           79┆ return bufio.[1m[24mScanLines[0m(data, atEOF)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                
+          logrus - writerScanner - Split - scanner
+                                                  
+           83┆ scanner.[1m[24mSplit[0m(splitFunc)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m               
+          logrus - writerScanner - Scan - scanner
+                                                 
+           86┆ for scanner.[1m[24mScan[0m() {
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                 
+          logrus - writerScanner - printFunc - $IMP
+                                                   
+           87┆ [1m[24mprintFunc[0m(strings.TrimRight(scanner.Text(), "\r\n"))
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                    
+          logrus - writerScanner - TrimRight - strings
+                                                      
+           87┆ printFunc(strings.[1m[24mTrimRight[0m(scanner.Text(), "\r\n"))
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m               
+          logrus - writerScanner - Text - scanner
+                                                 
+           87┆ printFunc(strings.TrimRight(scanner.[1m[24mText[0m(), "\r\n"))
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m              
+          logrus - writerScanner - Err - scanner
+                                                
+           91┆ if err := scanner.[1m[24mErr[0m(); err != nil {
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m               
+          logrus - writerScanner - Errorf - entry
+                                                 
+           92┆ entry.[1m[24mErrorf[0m("Error while reading from Writer: %s", err)
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m               
+          logrus - writerScanner - Close - reader
+                                                 
+           96┆ reader.[1m[24mClose[0m()
+            ⋮┆----------------------------------------
+       [1m[24mgo-function-chain[0m                 
+          logrus - writerFinalizer - Close - writer
+                                                   
+          101┆ writer.[1m[24mClose[0m()
+

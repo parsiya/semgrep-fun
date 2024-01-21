@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Semgrep Summary Report</title>
+  </head>
+  <body>
+    <h3>Total number of findings: {{ .NumberOfFindings }}</h3>
+
+    <h3>Findings by Rule ID:</h3>
+    <table>
+      <tr>
+        <th>Rule ID</th>
+        <th>Hits</th>
+      </tr>
+      {{- range .ByRuleID }}
+      <tr>
+        <td>{{ .Key }}</td>
+        <td>{{ .Value }}</td>
+      </tr>
+      {{ end -}}
+    </table>
+
+    </br>
+    </br>
+    <h3>Findings by Path:</h3>
+    <table>
+      <tr>
+        <th>File Path</th>
+        <th>Hits</th>
+      </tr>
+      {{- range .ByFilePath }}
+      <tr>
+        <td>{{ .Key }}</td>
+        <td>{{ .Value }}</td>
+      </tr>
+      {{ end -}}
+    </table>
+
+
+  </body>
+</html>

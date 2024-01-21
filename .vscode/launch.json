@@ -11,7 +11,8 @@
             "mode": "auto",
             "program": "${fileDirname}",
             "args": [
-                "03-go-test-coverage"
+                "06",
+                "code/logrus/"
             ]
         }
     ]

@@ -2,31 +2,28 @@ package fun
 
 import (
 	"log"
+	"os"
 
 	"golang.org/x/exp/slices"
 
 	"github.com/parsiya/semgrep_go/output"
-	"github.com/parsiya/semgrep_go/run"
 )
 
-func ExcludeRuleID() error {
+func ExcludeRuleID(path string) error {
 
 	// In the real world we will get a long list from somewhere.
 	excludedRules := []string{
 		"javascript.audit.detect-replaceall-sanitization.detect-replaceall-sanitization",
 	}
 
-	// Setup Semgrep switches. We're not adding anything to extras this time.
-	opts := run.Options{
-		Output:    run.JSON, // Output format is JSON.
-		Paths:     []string{"code/juice-shop"},
-		Rules:     []string{"p/default"},
-		Verbosity: run.Debug,
+	// Instead of running Semgrep, we will use the output from example 00 in
+	// `output/juice-shop.json`.
+	data, err := os.ReadFile("output/juice-shop.json")
+	if err != nil {
+		return err
 	}
-
-	log.Print("Running Semgrep, this might take a minute.")
-	// Run Semgrep and get the deserialized output.
-	out, err := opts.RunJSON()
+	// Deserialize the data.
+	out, err := output.Deserialize(data)
 	if err != nil {
 		return err
 	}
@@ -50,7 +47,7 @@ func ExcludeRuleID() error {
 	// Replace the results with the modified results.
 	out.Results = modifiedResults
 	log.Print("Results:")
-	log.Print(out.RuleIDStringTable(true))
+	log.Print(out.RuleIDTextReport(true))
 
 	// Optionally, we can serialize the output back to JSON.
 	js, err := out.Serialize(true)

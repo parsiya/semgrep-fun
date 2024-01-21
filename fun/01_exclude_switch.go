@@ -8,7 +8,7 @@ import (
 	"github.com/parsiya/semgrep_go/run"
 )
 
-func ExcludeSwitch() error {
+func ExcludeSwitch(path string) error {
 
 	// In the real world we will get a long list from somewhere.
 	excludedRules := []string{
@@ -24,8 +24,8 @@ func ExcludeSwitch() error {
 
 	// Setup Semgrep switches.
 	opts := run.Options{
-		Output:    run.JSON, // Output format is JSON.
-		Paths:     []string{"code/juice-shop"},
+		Output:    run.JSON,       // Output format is JSON.
+		Paths:     []string{path}, // "code/juice-shop"
 		Rules:     []string{"p/default"},
 		Verbosity: run.Debug,
 		Extra:     extra, // Items in Extra will be added to the CLI as-is.
@@ -46,7 +46,7 @@ func ExcludeSwitch() error {
 	}
 	// Print a table of ruleIDs and hits to show we have filtered the results.
 	log.Print("Results:")
-	log.Print(out.RuleIDStringTable(true))
+	log.Print(out.RuleIDTextReport(true))
 
 	return nil
 }

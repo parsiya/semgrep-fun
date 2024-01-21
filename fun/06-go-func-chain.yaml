@@ -1,0 +1,35 @@
+rules:
+- id: go-function-chain
+  patterns:
+    - pattern-inside: |
+        package $PKG
+        ...
+    - pattern-inside: |
+        func $CALLER(...) {...}
+    - pattern-either:
+        - pattern: $CALLEE(...)
+        - pattern: $IMP.$CALLEE(...)
+    - metavariable-regex:
+        metavariable: $CALLEE
+        regex: ^[^.]*$
+    - focus-metavariable: $CALLEE
+  message: $PKG - $CALLER - $CALLEE - $IMP
+  languages:
+    - go
+  severity: WARNING
+- id: go-import-collection
+  patterns:
+    # - pattern-inside: |
+    #     package $PKG
+    #     ...
+    - pattern-either:
+        - patterns:
+            - pattern: import "$IMPORT"
+            - pattern-not: import $ALIAS "$IMPORT"
+        - pattern: import $ALIAS "$IMPORT"
+  # message: $PKG - $ALIAS - $IMPORT
+  message: $ALIAS - $IMPORT
+  focus-metavariable: $IMPORT
+  languages:
+    - go
+  severity: WARNING
