@@ -9,10 +9,6 @@ any OS supported by Semgrep (every popular OS except Windows) and Go.
 Semgrep in WSL:
 https://parsiya.io/research/semgrep-tips/#semgrep-on-windows-via-wsl.
 
-ZZ add note about the latest Semgrep version that I try here. The output
-structure might be modified in future versions and not usable.
-
-1. Clone the repository: `git clone --recurse-submodules https://github.com/parsiya/ZZZ`
-2. Install Semgrep: `python -m pip install semgrep`.
-    1. Or update: `python -m pip install Semgrep -U`.
-3. Get submodules: `git submodule update --init`
+1. Clone the repository: `git clone --recurse-submodules https://github.com/parsiya/semgrep-fun`
+2. Install Semgrep: `python -m pip install semgrep==1.52.0` or `pipx install semgrep==1.52.0`.
+    1. Using Semgrep v1.52.0 because the structs might be different in future versions.
