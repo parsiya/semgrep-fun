@@ -18,7 +18,7 @@ func RunSemgrep(path string) error {
 	}
 
 	log.Print("Running Semgrep, this might take a minute.")
-	// Run Semgrep and get the deserialized output.
+	// Run Semgrep and ignore the output.
 	_, err := opts.Run()
 	return err
 }

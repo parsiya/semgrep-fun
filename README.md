@@ -1,6 +1,6 @@
 Fun and Weird Semgrep Experiments for the Entire Family
 
-ZZZ import `semgrep_go` as a module later.
+Blog is at: https://parsiya.net/blog/semgrep-fun/
 
 ## Setup
 The experiments were done in a Debian 11 machine under WSL2. But should work on
